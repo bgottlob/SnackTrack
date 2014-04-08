@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC1318DD18F45DF8005FA79F /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1318DC18F45DF8005FA79F /* ScanViewController.m */; };
+		DC1318DF18F46513005FA79F /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1318DE18F46513005FA79F /* libzbar.a */; };
 		DC3C42A518EA42000067458C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42A418EA42000067458C /* Foundation.framework */; };
 		DC3C42A718EA42000067458C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42A618EA42000067458C /* CoreGraphics.framework */; };
 		DC3C42A918EA42000067458C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42A818EA42000067458C /* UIKit.framework */; };
@@ -22,7 +24,6 @@
 		DC3C42C918EA42000067458C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42A818EA42000067458C /* UIKit.framework */; };
 		DC3C42D118EA42000067458C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC3C42CF18EA42000067458C /* InfoPlist.strings */; };
 		DC3C42D318EA42000067458C /* SnackTrackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C42D218EA42000067458C /* SnackTrackTests.m */; };
-		DCE4F38518EDE9DA00A8D865 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F37F18EDE9DA00A8D865 /* libzbar.a */; };
 		DCE4F38618EDE9DA00A8D865 /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = DCE4F38118EDE9DA00A8D865 /* zbar-back.png */; };
 		DCE4F38718EDE9DA00A8D865 /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = DCE4F38218EDE9DA00A8D865 /* zbar-help.html */; };
 		DCE4F38818EDE9DA00A8D865 /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = DCE4F38318EDE9DA00A8D865 /* zbar-helpicons.png */; };
@@ -46,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC1318DB18F45DF8005FA79F /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		DC1318DC18F45DF8005FA79F /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		DC1318DE18F46513005FA79F /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
 		DC3C42A118EA42000067458C /* SnackTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnackTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3C42A418EA42000067458C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC3C42A618EA42000067458C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -86,7 +90,6 @@
 		DCE4F37C18EDE9DA00A8D865 /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
 		DCE4F37D18EDE9DA00A8D865 /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
 		DCE4F37E18EDE9DA00A8D865 /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
-		DCE4F37F18EDE9DA00A8D865 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
 		DCE4F38118EDE9DA00A8D865 /* zbar-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-back.png"; sourceTree = "<group>"; };
 		DCE4F38218EDE9DA00A8D865 /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
 		DCE4F38318EDE9DA00A8D865 /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
@@ -106,12 +109,12 @@
 			files = (
 				DCE4F39318EDEAB200A8D865 /* libiconv.dylib in Frameworks */,
 				DCE4F39118EDEAA800A8D865 /* QuartzCore.framework in Frameworks */,
+				DC1318DF18F46513005FA79F /* libzbar.a in Frameworks */,
 				DCE4F38F18EDEA9F00A8D865 /* CoreVideo.framework in Frameworks */,
 				DCE4F38D18EDEA9A00A8D865 /* CoreMedia.framework in Frameworks */,
 				DCE4F38B18EDEA9100A8D865 /* AVFoundation.framework in Frameworks */,
 				DC3C42A718EA42000067458C /* CoreGraphics.framework in Frameworks */,
 				DC3C42A918EA42000067458C /* UIKit.framework in Frameworks */,
-				DCE4F38518EDE9DA00A8D865 /* libzbar.a in Frameworks */,
 				DC3C42A518EA42000067458C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +177,8 @@
 				DC3C42B918EA42000067458C /* Main_iPad.storyboard */,
 				DC3C42BC18EA42000067458C /* ViewController.h */,
 				DC3C42BD18EA42000067458C /* ViewController.m */,
+				DC1318DB18F45DF8005FA79F /* ScanViewController.h */,
+				DC1318DC18F45DF8005FA79F /* ScanViewController.m */,
 				DC3C42BF18EA42000067458C /* Images.xcassets */,
 				FD6A369918F1F507006858AF /* icon2.0.PNG */,
 				DC3C42AB18EA42000067458C /* Supporting Files */,
@@ -214,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				DCE4F36818EDE9DA00A8D865 /* Headers */,
-				DCE4F37F18EDE9DA00A8D865 /* libzbar.a */,
+				DC1318DE18F46513005FA79F /* libzbar.a */,
 				DCE4F38018EDE9DA00A8D865 /* Resources */,
 			);
 			path = ZBarSDK;
@@ -380,6 +385,7 @@
 				DC3C42BE18EA42000067458C /* ViewController.m in Sources */,
 				DC3C42B518EA42000067458C /* AppDelegate.m in Sources */,
 				DC3C42B118EA42000067458C /* main.m in Sources */,
+				DC1318DD18F45DF8005FA79F /* ScanViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
