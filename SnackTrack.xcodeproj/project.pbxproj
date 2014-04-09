@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3638974218F5D9AE003611A9 /* FoodList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3638974118F5D9AE003611A9 /* FoodList.m */; };
 		DC1318DD18F45DF8005FA79F /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1318DC18F45DF8005FA79F /* ScanViewController.m */; };
 		DC1318DF18F46513005FA79F /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1318DE18F46513005FA79F /* libzbar.a */; };
 		DC3C42A518EA42000067458C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42A418EA42000067458C /* Foundation.framework */; };
@@ -50,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3638974018F5D9AE003611A9 /* FoodList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodList.h; sourceTree = "<group>"; };
+		3638974118F5D9AE003611A9 /* FoodList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodList.m; sourceTree = "<group>"; };
 		DC1318DB18F45DF8005FA79F /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
 		DC1318DC18F45DF8005FA79F /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		DC1318DE18F46513005FA79F /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 				DC79C07618F5BC0E00FDE351 /* UPCParser.m */,
 				DC79C07918F5BDC200FDE351 /* FoodItem.h */,
 				DC79C07A18F5BDC200FDE351 /* FoodItem.m */,
+				3638974018F5D9AE003611A9 /* FoodList.h */,
+				3638974118F5D9AE003611A9 /* FoodList.m */,
 				DC1318DB18F45DF8005FA79F /* ScanViewController.h */,
 				DC1318DC18F45DF8005FA79F /* ScanViewController.m */,
 				DC3C42BF18EA42000067458C /* Images.xcassets */,
@@ -398,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC3C42BE18EA42000067458C /* ViewController.m in Sources */,
+				3638974218F5D9AE003611A9 /* FoodList.m in Sources */,
 				DC79C07B18F5BDC200FDE351 /* FoodItem.m in Sources */,
 				DC3C42B518EA42000067458C /* AppDelegate.m in Sources */,
 				DC3C42B118EA42000067458C /* main.m in Sources */,

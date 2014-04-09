@@ -7,12 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "FoodList.h"
 
 @implementation AppDelegate
 
+@synthesize foodList;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    foodList = [[FoodList alloc] init];
+    
     return YES;
 }
 							

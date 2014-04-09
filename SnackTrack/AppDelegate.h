@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class FoodList;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic, strong) FoodList *foodList;
 
 @end
