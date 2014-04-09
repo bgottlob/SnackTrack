@@ -7,6 +7,7 @@
 //
 
 #import "ScanViewController.h"
+#import "FoodItem.h"
 
 @implementation ScanViewController
 
@@ -55,7 +56,7 @@
     // TODO: (optional) additional reader configuration here
     
     // EXAMPLE: disable rarely used I2/5 to improve performance
-    [scanner setSymbology:ZBAR_I25 config:ZBAR_CFG_ENABLE to: 0];
+    [scanner setSymbology:ZBAR_UPCA config:ZBAR_CFG_ENABLE to: 0];
     
     // present and release the controller
     [self presentViewController:reader animated:YES completion:nil];
@@ -67,16 +68,17 @@
     id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
     ZBarSymbol *symbol = nil;
     for(symbol in results)
-        // EXAMPLE: just grab the first barcode
         break;
     
-    // EXAMPLE: do something useful with the barcode data
-    upcLabel.text = symbol.data;
     
-    // EXAMPLE: do something useful with the barcode image
-    //resultImage.image = [info objectForKey: UIImagePickerControllerOriginalImage];
+    NSString *upcCode = [symbol.data substringFromIndex:1];
     
-    // ADD: dismiss the controller (NB dismiss from the *reader*!)
+    
+    
+    upcLabel.text = upcCode;
+    FoodItem *item = [[FoodItem alloc] initWithUPC:upcCode];
+    NSLog(@"Item name: %@", item.name);
+    
     [reader dismissViewControllerAnimated:YES completion:nil];
 }
 

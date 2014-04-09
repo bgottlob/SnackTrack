@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface UPCdelegate : NSObject
-    {
-            NSMutableString *currentElementValue;
-            NSMutableDictionary *item;
-    }
-    
-    @property (nonatomic, retain) NSMutableDictionary *item;
-    
-    - (UPCdelegate *) initUPCdelegate;
-    
+{
+    NSMutableString *currentElementValue;
+    NSMutableDictionary *item;
+}
+
+@property (nonatomic, retain) NSMutableDictionary *item;
+
+- (UPCdelegate *) initUPCdelegate;
+
 @end
