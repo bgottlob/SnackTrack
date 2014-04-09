@@ -8,6 +8,8 @@
 
 #import "ScanViewController.h"
 #import "FoodItem.h"
+#import "AppDelegate.h"
+#import "FoodItem.h"
 
 @implementation ScanViewController
 
@@ -73,11 +75,14 @@
     
     NSString *upcCode = [symbol.data substringFromIndex:1];
     
-    
-    
     upcLabel.text = upcCode;
     FoodItem *item = [[FoodItem alloc] initWithUPC:upcCode];
-    NSLog(@"Item name: %@", item.name);
+    //NSLog(@"Item name: %@", item.name);
+    
+    //Get a reference to the AppDelegate object
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    [appDelegate.foodList addFoodItem: item];
     
     [reader dismissViewControllerAnimated:YES completion:nil];
 }
