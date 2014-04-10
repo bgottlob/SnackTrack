@@ -18,11 +18,27 @@
     if (self = [super init])
     {
         upcCode = [inUPC intValue];
-        NSLog(@"inUPC: %@", inUPC);
+
         NSDictionary *itemData = [UPCParser parseUPC:inUPC];
         name = [itemData valueForKey:@"description"];
     }
     
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInt:upcCode forKey:@"upcCode"];
+    [aCoder encodeObject:name forKey:@"name"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init])
+    {
+        self.upcCode = [aDecoder decodeIntForKey:@"upcCode"];
+        self.name = [aDecoder decodeObjectForKey:@"name"];
+    }
     return self;
 }
 

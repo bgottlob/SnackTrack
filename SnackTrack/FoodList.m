@@ -27,4 +27,18 @@
     [foodArray addObject:item];
 }
 
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:foodArray forKey:@"foodArray"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init])
+    {
+        self.foodArray = [[aDecoder decodeObjectForKey:@"foodArray"] mutableCopy];
+    }
+    return self;
+}
+
 @end

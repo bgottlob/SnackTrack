@@ -17,6 +17,16 @@
 {
     foodList = [[FoodList alloc] init];
     
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *listFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
+    
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    if ([fileManager fileExistsAtPath:listFile])
+    {
+        foodList = [NSKeyedUnarchiver unarchiveObjectWithFile:listFile];
+    }
+    
     return YES;
 }
 							

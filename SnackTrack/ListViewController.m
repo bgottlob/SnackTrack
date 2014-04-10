@@ -30,6 +30,8 @@
     
     foodTable.delegate = self;
     foodTable.dataSource = self;
+    
+    [foodTable setBackgroundColor:[UIColor clearColor]];
 }
 
 //Called whenever a list view is about to appear
