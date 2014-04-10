@@ -11,7 +11,7 @@
 @interface FoodItem : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic) int upcCode;
+@property (nonatomic, copy) NSString *upcCode;
 
 -(id)initWithUPC:(NSString *)inUPC;
 

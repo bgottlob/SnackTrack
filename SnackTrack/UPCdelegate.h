@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UPCdelegate : NSObject
+@interface UPCdelegate : NSObject <NSXMLParserDelegate>
 {
     NSMutableString *currentElementValue;
     NSMutableDictionary *item;
 }
 
-@property (nonatomic, retain) NSMutableDictionary *item;
+@property (nonatomic, strong) NSMutableDictionary *item;
 
-- (UPCdelegate *) initUPCdelegate;
+-(UPCdelegate *)initUPCdelegate;
 
 @end

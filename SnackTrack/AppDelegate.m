@@ -17,11 +17,14 @@
 {
     foodList = [[FoodList alloc] init];
     
+    //Get the filename of the text file that the food list object is saved in
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *listFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
     
     NSFileManager *fileManager = [[NSFileManager alloc] init];
+    
+    //If the file exists, read its contents, if not, foodList was initialized already
     if ([fileManager fileExistsAtPath:listFile])
     {
         foodList = [NSKeyedUnarchiver unarchiveObjectWithFile:listFile];

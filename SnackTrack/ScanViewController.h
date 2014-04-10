@@ -12,6 +12,7 @@
 @interface ScanViewController : UIViewController <ZBarReaderDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *upcLabel;
+
 -(IBAction)clickScan:(id)sender;
 
 @end

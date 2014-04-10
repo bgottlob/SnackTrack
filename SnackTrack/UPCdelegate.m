@@ -9,39 +9,37 @@
 #import "UPCdelegate.h"
 
 @implementation UPCdelegate
+
 @synthesize item;
--(UPCdelegate *) initUPCdelegate {
+
+-(UPCdelegate *)initUPCdelegate
+{
     item = [[NSMutableDictionary alloc] init];
     return [super init];
 }
 
-- (void)parser:(NSXMLParser *)parser
-didStartElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qualifiedName
-    attributes:(NSDictionary *)attributeDict {
+/*-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
+{
     
     if ([elementName isEqualToString:@"output"]) {
     }
-}
+}*/
 
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
     if (!currentElementValue) {
         // init the ad hoc string with the value
-        NSLog(@"IF %@", string);
+        //NSLog(@"IF %@", string);
         currentElementValue = [[NSMutableString alloc] initWithString:string];
     } else {
         // append value to the ad hoc string
-        NSLog(@"ELSE %@", string);
+        //NSLog(@"ELSE %@", string);
         [currentElementValue appendString:string];
     }
 }
 
-- (void)parser:(NSXMLParser *)parser
- didEndElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qName {
-    
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
     if ([elementName isEqualToString:@"output"]) {
         // We reached the end of the XML document
         return;

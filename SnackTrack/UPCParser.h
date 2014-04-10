@@ -11,6 +11,6 @@
 
 @interface UPCParser : NSObject
 
-+(NSDictionary *)parseUPC:(NSString*) upcCode;
++(NSDictionary *)parseUPC:(NSString*)upcCode;
 
 @end
