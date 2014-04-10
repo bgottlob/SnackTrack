@@ -38,6 +38,7 @@
 		DCE4F39118EDEAA800A8D865 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F39018EDEAA800A8D865 /* QuartzCore.framework */; };
 		DCE4F39318EDEAB200A8D865 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F39218EDEAB200A8D865 /* libiconv.dylib */; };
 		FD6A369A18F1F507006858AF /* icon2.0.PNG in Resources */ = {isa = PBXBuildFile; fileRef = FD6A369918F1F507006858AF /* icon2.0.PNG */; };
+		FD6F3CBD18F6F0630017D64C /* icon2.0 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6F3CBC18F6F0630017D64C /* icon2.0 copy.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		DCE4F39018EDEAA800A8D865 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DCE4F39218EDEAB200A8D865 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		FD6A369918F1F507006858AF /* icon2.0.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.0.PNG; sourceTree = "<group>"; };
+		FD6F3CBC18F6F0630017D64C /* icon2.0 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon2.0 copy.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				DC6D153A18F5DF7000058524 /* ListViewController.m */,
 				DC3C42BF18EA42000067458C /* Images.xcassets */,
 				FD6A369918F1F507006858AF /* icon2.0.PNG */,
+				FD6F3CBC18F6F0630017D64C /* icon2.0 copy.png */,
 				DC3C42AB18EA42000067458C /* Supporting Files */,
 			);
 			path = SnackTrack;
@@ -380,6 +383,7 @@
 				DC3C42B818EA42000067458C /* Main_iPhone.storyboard in Resources */,
 				DC3C42AF18EA42000067458C /* InfoPlist.strings in Resources */,
 				DCE4F38918EDE9DA00A8D865 /* zbar-samples.png in Resources */,
+				FD6F3CBD18F6F0630017D64C /* icon2.0 copy.png in Resources */,
 				DCE4F38718EDE9DA00A8D865 /* zbar-help.html in Resources */,
 				DCE4F38618EDE9DA00A8D865 /* zbar-back.png in Resources */,
 				DCE4F38818EDE9DA00A8D865 /* zbar-helpicons.png in Resources */,
