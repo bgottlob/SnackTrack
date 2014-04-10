@@ -9,7 +9,7 @@
 #import "ScanViewController.h"
 #import "FoodItem.h"
 #import "AppDelegate.h"
-#import "FoodItem.h"
+#import "FoodList.h"
 
 @implementation ScanViewController
 
@@ -82,7 +82,12 @@
     //Get a reference to the AppDelegate object
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    [appDelegate.foodList addFoodItem: item];
+    [appDelegate.foodList addFoodItem:item];
+    
+    for (FoodItem *fitem in appDelegate.foodList.foodArray)
+    {
+        NSLog(@"Name: %@", fitem.name);
+    }
     
     [reader dismissViewControllerAnimated:YES completion:nil];
 }
