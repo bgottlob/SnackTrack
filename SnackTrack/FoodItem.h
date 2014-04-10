@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FoodItem : NSObject
+@interface FoodItem : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic) int upcCode;

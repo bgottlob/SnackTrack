@@ -10,7 +10,7 @@
 
 @class FoodItem;
 
-@interface FoodList : NSObject
+@interface FoodList : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSMutableArray *foodArray;
 

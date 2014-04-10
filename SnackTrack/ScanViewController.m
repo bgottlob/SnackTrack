@@ -76,20 +76,22 @@
     NSString *upcCode = [symbol.data substringFromIndex:1];
     
     upcLabel.text = upcCode;
+    
+    [reader dismissViewControllerAnimated:YES completion:nil];
+    
     FoodItem *item = [[FoodItem alloc] initWithUPC:upcCode];
-    //NSLog(@"Item name: %@", item.name);
+    NSLog(@"Item name: %@", item.name);
     
     //Get a reference to the AppDelegate object
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     [appDelegate.foodList addFoodItem:item];
     
-    for (FoodItem *fitem in appDelegate.foodList.foodArray)
-    {
-        NSLog(@"Name: %@", fitem.name);
-    }
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
     
-    [reader dismissViewControllerAnimated:YES completion:nil];
+    [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
 }
 
 @end
