@@ -12,19 +12,20 @@
 
 +(NSDictionary *)parseUPC:(NSString*)upcCode
 {
-    NSLog(@"here");
+    //Generating a URL to feed to the API
     NSString *combined = [@"http://api.upcdatabase.org/xml/e9b06e801511e9b6492ac371850bdc83/" stringByAppendingString:upcCode];
-    NSLog(@"%@", combined);
     NSURL *xmlURL = [[NSURL alloc] initWithString:combined];
     NSXMLParser *XMLupcparser =[[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
+    
     UPCdelegate *parser = [[UPCdelegate alloc] initUPCdelegate];
     [XMLupcparser setDelegate:parser];
+    
     BOOL success = [XMLupcparser parse];
     if(success){
         NSMutableDictionary *itemData = [parser item];
-        NSLog(@"succ");
         return itemData;
     }
+    
     return NULL;
 }
 

@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+//Stores the user's list of food items
 @property (nonatomic, strong) FoodList *foodList;
 
 @end

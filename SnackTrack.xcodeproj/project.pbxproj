@@ -18,7 +18,6 @@
 		DC3C42B518EA42000067458C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C42B418EA42000067458C /* AppDelegate.m */; };
 		DC3C42B818EA42000067458C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC3C42B618EA42000067458C /* Main_iPhone.storyboard */; };
 		DC3C42BB18EA42000067458C /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC3C42B918EA42000067458C /* Main_iPad.storyboard */; };
-		DC3C42BE18EA42000067458C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C42BD18EA42000067458C /* ViewController.m */; };
 		DC3C42C018EA42000067458C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3C42BF18EA42000067458C /* Images.xcassets */; };
 		DC3C42C718EA42000067458C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42C618EA42000067458C /* XCTest.framework */; };
 		DC3C42C818EA42000067458C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42A418EA42000067458C /* Foundation.framework */; };
@@ -69,8 +68,6 @@
 		DC3C42B418EA42000067458C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DC3C42B718EA42000067458C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		DC3C42BA18EA42000067458C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		DC3C42BC18EA42000067458C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DC3C42BD18EA42000067458C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DC3C42BF18EA42000067458C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DC3C42C518EA42000067458C /* SnackTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnackTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3C42C618EA42000067458C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -190,8 +187,6 @@
 				DC3C42B418EA42000067458C /* AppDelegate.m */,
 				DC3C42B618EA42000067458C /* Main_iPhone.storyboard */,
 				DC3C42B918EA42000067458C /* Main_iPad.storyboard */,
-				DC3C42BC18EA42000067458C /* ViewController.h */,
-				DC3C42BD18EA42000067458C /* ViewController.m */,
 				DC79C07318F5BC0E00FDE351 /* UPCdelegate.h */,
 				DC79C07418F5BC0E00FDE351 /* UPCdelegate.m */,
 				DC79C07518F5BC0E00FDE351 /* UPCParser.h */,
@@ -407,7 +402,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC3C42BE18EA42000067458C /* ViewController.m in Sources */,
 				3638974218F5D9AE003611A9 /* FoodList.m in Sources */,
 				DC6D153B18F5DF7000058524 /* ListViewController.m in Sources */,
 				DC79C07B18F5BDC200FDE351 /* FoodItem.m in Sources */,

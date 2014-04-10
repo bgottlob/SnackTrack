@@ -66,13 +66,12 @@
 
 - (void) imagePickerController:(UIImagePickerController*)reader didFinishPickingMediaWithInfo:(NSDictionary*)info
 {
-    // ADD: get the decode results
     id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
     ZBarSymbol *symbol = nil;
     for(symbol in results)
         break;
     
-    
+    //Removes the leading 0 from the UPC string
     NSString *upcCode = [symbol.data substringFromIndex:1];
     
     upcLabel.text = upcCode;
