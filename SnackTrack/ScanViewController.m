@@ -7,6 +7,7 @@
 //
 
 #import "ScanViewController.h"
+#import "FormViewController.h"
 #import "FoodItem.h"
 #import "AppDelegate.h"
 #import "FoodList.h"
@@ -46,51 +47,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
--(IBAction)clickScan:(id)sender
-{
-    // ADD: present a barcode reader that scans from the camera feed
-    ZBarReaderViewController *reader = [ZBarReaderViewController new];
-    reader.readerDelegate = self;
-    reader.supportedOrientationsMask = ZBarOrientationMaskAll;
-    
-    ZBarImageScanner *scanner = reader.scanner;
-    // TODO: (optional) additional reader configuration here
-    
-    // EXAMPLE: disable rarely used I2/5 to improve performance
-    [scanner setSymbology:ZBAR_UPCA config:ZBAR_CFG_ENABLE to: 0];
-    
-    // present and release the controller
-    [self presentViewController:reader animated:YES completion:nil];
-}
-
-- (void) imagePickerController:(UIImagePickerController*)reader didFinishPickingMediaWithInfo:(NSDictionary*)info
-{
-    id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
-    ZBarSymbol *symbol = nil;
-    for(symbol in results)
-        break;
-    
-    //Removes the leading 0 from the UPC string
-    NSString *upcCode = [symbol.data substringFromIndex:1];
-    
-    upcLabel.text = upcCode;
-    
-    [reader dismissViewControllerAnimated:YES completion:nil];
-    
-    FoodItem *item = [[FoodItem alloc] initWithUPC:upcCode];
-    NSLog(@"Item name: %@", item.name);
-    
-    //Get a reference to the AppDelegate object
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    [appDelegate.foodList addFoodItem:item];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
-    
-    [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
-}
 
 @end

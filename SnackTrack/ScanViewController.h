@@ -13,6 +13,4 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *upcLabel;
 
--(IBAction)clickScan:(id)sender;
-
 @end
