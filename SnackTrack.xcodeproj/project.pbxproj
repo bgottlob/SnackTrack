@@ -37,6 +37,7 @@
 		DCE4F38F18EDEA9F00A8D865 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F38E18EDEA9F00A8D865 /* CoreVideo.framework */; };
 		DCE4F39118EDEAA800A8D865 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F39018EDEAA800A8D865 /* QuartzCore.framework */; };
 		DCE4F39318EDEAB200A8D865 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F39218EDEAB200A8D865 /* libiconv.dylib */; };
+		F339A9C218F70C4800728503 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F339A9C118F70C4800728503 /* FormViewController.m */; };
 		FD6A369A18F1F507006858AF /* icon2.0.PNG in Resources */ = {isa = PBXBuildFile; fileRef = FD6A369918F1F507006858AF /* icon2.0.PNG */; };
 		FD6F3CBD18F6F0630017D64C /* icon2.0 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6F3CBC18F6F0630017D64C /* icon2.0 copy.png */; };
 /* End PBXBuildFile section */
@@ -112,6 +113,8 @@
 		DCE4F38E18EDEA9F00A8D865 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		DCE4F39018EDEAA800A8D865 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DCE4F39218EDEAB200A8D865 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		F339A9C018F70C4800728503 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewController.h; sourceTree = "<group>"; };
+		F339A9C118F70C4800728503 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewController.m; sourceTree = "<group>"; };
 		FD6A369918F1F507006858AF /* icon2.0.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.0.PNG; sourceTree = "<group>"; };
 		FD6F3CBC18F6F0630017D64C /* icon2.0 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon2.0 copy.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,6 +204,8 @@
 				DC1318DC18F45DF8005FA79F /* ScanViewController.m */,
 				DC6D153918F5DF7000058524 /* ListViewController.h */,
 				DC6D153A18F5DF7000058524 /* ListViewController.m */,
+				F339A9C018F70C4800728503 /* FormViewController.h */,
+				F339A9C118F70C4800728503 /* FormViewController.m */,
 				DC3C42BF18EA42000067458C /* Images.xcassets */,
 				FD6A369918F1F507006858AF /* icon2.0.PNG */,
 				FD6F3CBC18F6F0630017D64C /* icon2.0 copy.png */,
@@ -412,6 +417,7 @@
 				DC3C42B518EA42000067458C /* AppDelegate.m in Sources */,
 				DC3C42B118EA42000067458C /* main.m in Sources */,
 				DC79C07718F5BC0E00FDE351 /* UPCdelegate.m in Sources */,
+				F339A9C218F70C4800728503 /* FormViewController.m in Sources */,
 				DC1318DD18F45DF8005FA79F /* ScanViewController.m in Sources */,
 				DC79C07818F5BC0E00FDE351 /* UPCParser.m in Sources */,
 			);
