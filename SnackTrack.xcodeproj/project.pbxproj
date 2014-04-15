@@ -25,7 +25,6 @@
 		DC3C42D118EA42000067458C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC3C42CF18EA42000067458C /* InfoPlist.strings */; };
 		DC3C42D318EA42000067458C /* SnackTrackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C42D218EA42000067458C /* SnackTrackTests.m */; };
 		DC6D153B18F5DF7000058524 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6D153A18F5DF7000058524 /* ListViewController.m */; };
-		DC79C07718F5BC0E00FDE351 /* UPCdelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC79C07418F5BC0E00FDE351 /* UPCdelegate.m */; };
 		DC79C07818F5BC0E00FDE351 /* UPCParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DC79C07618F5BC0E00FDE351 /* UPCParser.m */; };
 		DC79C07B18F5BDC200FDE351 /* FoodItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DC79C07A18F5BDC200FDE351 /* FoodItem.m */; };
 		DCE4F38618EDE9DA00A8D865 /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = DCE4F38118EDE9DA00A8D865 /* zbar-back.png */; };
@@ -78,8 +77,6 @@
 		DC3C42D218EA42000067458C /* SnackTrackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnackTrackTests.m; sourceTree = "<group>"; };
 		DC6D153918F5DF7000058524 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		DC6D153A18F5DF7000058524 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		DC79C07318F5BC0E00FDE351 /* UPCdelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCdelegate.h; sourceTree = "<group>"; };
-		DC79C07418F5BC0E00FDE351 /* UPCdelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCdelegate.m; sourceTree = "<group>"; };
 		DC79C07518F5BC0E00FDE351 /* UPCParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCParser.h; sourceTree = "<group>"; };
 		DC79C07618F5BC0E00FDE351 /* UPCParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCParser.m; sourceTree = "<group>"; };
 		DC79C07918F5BDC200FDE351 /* FoodItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodItem.h; sourceTree = "<group>"; };
@@ -192,8 +189,6 @@
 				DC3C42B418EA42000067458C /* AppDelegate.m */,
 				DC3C42B618EA42000067458C /* Main_iPhone.storyboard */,
 				DC3C42B918EA42000067458C /* Main_iPad.storyboard */,
-				DC79C07318F5BC0E00FDE351 /* UPCdelegate.h */,
-				DC79C07418F5BC0E00FDE351 /* UPCdelegate.m */,
 				DC79C07518F5BC0E00FDE351 /* UPCParser.h */,
 				DC79C07618F5BC0E00FDE351 /* UPCParser.m */,
 				DC79C07918F5BDC200FDE351 /* FoodItem.h */,
@@ -416,7 +411,6 @@
 				DC79C07B18F5BDC200FDE351 /* FoodItem.m in Sources */,
 				DC3C42B518EA42000067458C /* AppDelegate.m in Sources */,
 				DC3C42B118EA42000067458C /* main.m in Sources */,
-				DC79C07718F5BC0E00FDE351 /* UPCdelegate.m in Sources */,
 				F339A9C218F70C4800728503 /* FormViewController.m in Sources */,
 				DC1318DD18F45DF8005FA79F /* ScanViewController.m in Sources */,
 				DC79C07818F5BC0E00FDE351 /* UPCParser.m in Sources */,

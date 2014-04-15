@@ -19,7 +19,7 @@
     {
         upcCode = inUPC;
         NSDictionary *itemData = [UPCParser parseUPC:inUPC];
-        name = [itemData valueForKey:@"description"];
+        name = [itemData valueForKey:@"name"];
     }
     
     return self;

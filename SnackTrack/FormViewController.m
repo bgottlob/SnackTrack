@@ -50,16 +50,21 @@
 
 -(IBAction)clickScan:(id)sender
 {
-    // ADD: present a barcode reader that scans from the camera feed
+    // Present a barcode reader that scans from the camera feed
     ZBarReaderViewController *reader = [ZBarReaderViewController new];
     reader.readerDelegate = self;
     reader.supportedOrientationsMask = ZBarOrientationMaskAll;
     
     ZBarImageScanner *scanner = reader.scanner;
-    // TODO: (optional) additional reader configuration here
     
-    // EXAMPLE: disable rarely used I2/5 to improve performance
-    [scanner setSymbology:ZBAR_UPCA config:ZBAR_CFG_ENABLE to: 0];
+    // Disable all symbologies
+    [scanner setSymbology: 0 config: ZBAR_CFG_ENABLE to: 0];
+    
+    // Enable EAN 13 - For European products
+    [scanner setSymbology: ZBAR_EAN13 config: ZBAR_CFG_ENABLE to: 1];
+    
+    // Enable UPC-A – For American products
+    [scanner setSymbology: ZBAR_UPCA config: ZBAR_CFG_ENABLE to: 1];
     
     // present and release the controller
     [self presentViewController:reader animated:YES completion:nil];
@@ -92,16 +97,14 @@
     for(symbol in results)
         break;
     
-    //Removes the leading 0 from the UPC string
-    NSString *upcCode = [symbol.data substringFromIndex:1];
-    
-    self.upc.text = upcCode;
+    NSString *upcCode = symbol.data;
     
     [reader dismissViewControllerAnimated:YES completion:nil];
     
-    //[self presentViewController:form animated:YES completion:nil];
+    self.upc.text = upcCode;
     
     FoodItem *item = [[FoodItem alloc] initWithUPC:upcCode];
+    self.foodName.text = item.name;
     NSLog(@"Item name: %@", item.name);
 }
 

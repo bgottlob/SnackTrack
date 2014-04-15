@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="G7z-ih-3ro">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="G7z-ih-3ro">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -78,31 +78,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Food Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yNT-Ef-7OS">
-                                <rect key="frame" x="91" y="232" width="129" height="30"/>
+                                <rect key="frame" x="20" y="232" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UPC" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1FJ-qc-gV0">
-                                <rect key="frame" x="107" y="287" width="97" height="30"/>
+                                <rect key="frame" x="20" y="284" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Expiry Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5j-r7-qDh">
-                                <rect key="frame" x="95" y="342" width="120" height="30"/>
+                                <rect key="frame" x="20" y="342" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UcQ-Xw-BfG">
-                                <rect key="frame" x="107" y="398" width="97" height="30"/>
+                                <rect key="frame" x="20" y="398" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Average Time Use" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ubu-hq-SQ4">
-                                <rect key="frame" x="91" y="456" width="139" height="30"/>
+                                <rect key="frame" x="20" y="456" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -116,11 +116,11 @@
                                 </state>
                                 <connections>
                                     <action selector="clickAdd:" destination="U76-hh-UKh" eventType="touchUpInside" id="5HC-p6-XrX"/>
-                                    <segue destination="ION-iU-TeM" kind="modal" id="yuM-w3-LlS"/>
+                                    <segue destination="ION-iU-TeM" kind="push" id="GSh-lt-E2h"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKN-W7-dyw">
-                                <rect key="frame" x="100" y="80" width="110" height="63"/>
+                                <rect key="frame" x="105" y="80" width="110" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.82745098039999998" green="0.8862745098" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal">
@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0eP-Xw-B4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="748"/>
+            <point key="canvasLocation" x="1183" y="387"/>
         </scene>
         <!--List View Controller - List-->
         <scene sceneID="hYh-Kk-iHq">
@@ -187,6 +187,7 @@
                         <color key="tintColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" id="KEu-Iw-ixx"/>
+                    <navigationItem key="navigationItem" id="61b-oO-jm1"/>
                     <connections>
                         <outlet property="foodTable" destination="ctB-cG-oVy" id="xr5-oo-0SN"/>
                         <outlet property="view" destination="fKz-Gc-boP" id="9Sq-HA-kmx"/>
@@ -265,6 +266,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="yuM-w3-LlS"/>
+        <segue reference="GSh-lt-E2h"/>
     </inferredMetricsTieBreakers>
 </document>
