@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3638974218F5D9AE003611A9 /* FoodList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3638974118F5D9AE003611A9 /* FoodList.m */; };
+		DC1318DD18F45DF8005FA79F /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1318DC18F45DF8005FA79F /* ScanViewController.m */; };
+		DC1318DF18F46513005FA79F /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1318DE18F46513005FA79F /* libzbar.a */; };
 		DC3C42A518EA42000067458C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42A418EA42000067458C /* Foundation.framework */; };
 		DC3C42A718EA42000067458C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42A618EA42000067458C /* CoreGraphics.framework */; };
 		DC3C42A918EA42000067458C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42A818EA42000067458C /* UIKit.framework */; };
@@ -15,14 +18,16 @@
 		DC3C42B518EA42000067458C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C42B418EA42000067458C /* AppDelegate.m */; };
 		DC3C42B818EA42000067458C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC3C42B618EA42000067458C /* Main_iPhone.storyboard */; };
 		DC3C42BB18EA42000067458C /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC3C42B918EA42000067458C /* Main_iPad.storyboard */; };
-		DC3C42BE18EA42000067458C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C42BD18EA42000067458C /* ViewController.m */; };
 		DC3C42C018EA42000067458C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3C42BF18EA42000067458C /* Images.xcassets */; };
 		DC3C42C718EA42000067458C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42C618EA42000067458C /* XCTest.framework */; };
 		DC3C42C818EA42000067458C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42A418EA42000067458C /* Foundation.framework */; };
 		DC3C42C918EA42000067458C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C42A818EA42000067458C /* UIKit.framework */; };
 		DC3C42D118EA42000067458C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC3C42CF18EA42000067458C /* InfoPlist.strings */; };
 		DC3C42D318EA42000067458C /* SnackTrackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3C42D218EA42000067458C /* SnackTrackTests.m */; };
-		DCE4F38518EDE9DA00A8D865 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F37F18EDE9DA00A8D865 /* libzbar.a */; };
+		DC6D153B18F5DF7000058524 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6D153A18F5DF7000058524 /* ListViewController.m */; };
+		DC79C07718F5BC0E00FDE351 /* UPCdelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC79C07418F5BC0E00FDE351 /* UPCdelegate.m */; };
+		DC79C07818F5BC0E00FDE351 /* UPCParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DC79C07618F5BC0E00FDE351 /* UPCParser.m */; };
+		DC79C07B18F5BDC200FDE351 /* FoodItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DC79C07A18F5BDC200FDE351 /* FoodItem.m */; };
 		DCE4F38618EDE9DA00A8D865 /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = DCE4F38118EDE9DA00A8D865 /* zbar-back.png */; };
 		DCE4F38718EDE9DA00A8D865 /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = DCE4F38218EDE9DA00A8D865 /* zbar-help.html */; };
 		DCE4F38818EDE9DA00A8D865 /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = DCE4F38318EDE9DA00A8D865 /* zbar-helpicons.png */; };
@@ -32,6 +37,9 @@
 		DCE4F38F18EDEA9F00A8D865 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F38E18EDEA9F00A8D865 /* CoreVideo.framework */; };
 		DCE4F39118EDEAA800A8D865 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F39018EDEAA800A8D865 /* QuartzCore.framework */; };
 		DCE4F39318EDEAB200A8D865 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F39218EDEAB200A8D865 /* libiconv.dylib */; };
+		F339A9C218F70C4800728503 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F339A9C118F70C4800728503 /* FormViewController.m */; };
+		FD6A369A18F1F507006858AF /* icon2.0.PNG in Resources */ = {isa = PBXBuildFile; fileRef = FD6A369918F1F507006858AF /* icon2.0.PNG */; };
+		FD6F3CBD18F6F0630017D64C /* icon2.0 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6F3CBC18F6F0630017D64C /* icon2.0 copy.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +53,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3638974018F5D9AE003611A9 /* FoodList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodList.h; sourceTree = "<group>"; };
+		3638974118F5D9AE003611A9 /* FoodList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodList.m; sourceTree = "<group>"; };
+		DC1318DB18F45DF8005FA79F /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		DC1318DC18F45DF8005FA79F /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		DC1318DE18F46513005FA79F /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
 		DC3C42A118EA42000067458C /* SnackTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnackTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3C42A418EA42000067458C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC3C42A618EA42000067458C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,14 +70,20 @@
 		DC3C42B418EA42000067458C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DC3C42B718EA42000067458C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		DC3C42BA18EA42000067458C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		DC3C42BC18EA42000067458C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DC3C42BD18EA42000067458C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DC3C42BF18EA42000067458C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DC3C42C518EA42000067458C /* SnackTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnackTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3C42C618EA42000067458C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DC3C42CE18EA42000067458C /* SnackTrackTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnackTrackTests-Info.plist"; sourceTree = "<group>"; };
 		DC3C42D018EA42000067458C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DC3C42D218EA42000067458C /* SnackTrackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnackTrackTests.m; sourceTree = "<group>"; };
+		DC6D153918F5DF7000058524 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		DC6D153A18F5DF7000058524 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		DC79C07318F5BC0E00FDE351 /* UPCdelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCdelegate.h; sourceTree = "<group>"; };
+		DC79C07418F5BC0E00FDE351 /* UPCdelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCdelegate.m; sourceTree = "<group>"; };
+		DC79C07518F5BC0E00FDE351 /* UPCParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCParser.h; sourceTree = "<group>"; };
+		DC79C07618F5BC0E00FDE351 /* UPCParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCParser.m; sourceTree = "<group>"; };
+		DC79C07918F5BDC200FDE351 /* FoodItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodItem.h; sourceTree = "<group>"; };
+		DC79C07A18F5BDC200FDE351 /* FoodItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodItem.m; sourceTree = "<group>"; };
 		DCE4F36B18EDE9DA00A8D865 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		DCE4F36C18EDE9DA00A8D865 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		DCE4F36D18EDE9DA00A8D865 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -85,7 +104,6 @@
 		DCE4F37C18EDE9DA00A8D865 /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
 		DCE4F37D18EDE9DA00A8D865 /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
 		DCE4F37E18EDE9DA00A8D865 /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
-		DCE4F37F18EDE9DA00A8D865 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
 		DCE4F38118EDE9DA00A8D865 /* zbar-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-back.png"; sourceTree = "<group>"; };
 		DCE4F38218EDE9DA00A8D865 /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
 		DCE4F38318EDE9DA00A8D865 /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
@@ -95,6 +113,10 @@
 		DCE4F38E18EDEA9F00A8D865 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		DCE4F39018EDEAA800A8D865 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DCE4F39218EDEAB200A8D865 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		F339A9C018F70C4800728503 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewController.h; sourceTree = "<group>"; };
+		F339A9C118F70C4800728503 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewController.m; sourceTree = "<group>"; };
+		FD6A369918F1F507006858AF /* icon2.0.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.0.PNG; sourceTree = "<group>"; };
+		FD6F3CBC18F6F0630017D64C /* icon2.0 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon2.0 copy.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,12 +126,12 @@
 			files = (
 				DCE4F39318EDEAB200A8D865 /* libiconv.dylib in Frameworks */,
 				DCE4F39118EDEAA800A8D865 /* QuartzCore.framework in Frameworks */,
+				DC1318DF18F46513005FA79F /* libzbar.a in Frameworks */,
 				DCE4F38F18EDEA9F00A8D865 /* CoreVideo.framework in Frameworks */,
 				DCE4F38D18EDEA9A00A8D865 /* CoreMedia.framework in Frameworks */,
 				DCE4F38B18EDEA9100A8D865 /* AVFoundation.framework in Frameworks */,
 				DC3C42A718EA42000067458C /* CoreGraphics.framework in Frameworks */,
 				DC3C42A918EA42000067458C /* UIKit.framework in Frameworks */,
-				DCE4F38518EDE9DA00A8D865 /* libzbar.a in Frameworks */,
 				DC3C42A518EA42000067458C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,9 +192,23 @@
 				DC3C42B418EA42000067458C /* AppDelegate.m */,
 				DC3C42B618EA42000067458C /* Main_iPhone.storyboard */,
 				DC3C42B918EA42000067458C /* Main_iPad.storyboard */,
-				DC3C42BC18EA42000067458C /* ViewController.h */,
-				DC3C42BD18EA42000067458C /* ViewController.m */,
+				DC79C07318F5BC0E00FDE351 /* UPCdelegate.h */,
+				DC79C07418F5BC0E00FDE351 /* UPCdelegate.m */,
+				DC79C07518F5BC0E00FDE351 /* UPCParser.h */,
+				DC79C07618F5BC0E00FDE351 /* UPCParser.m */,
+				DC79C07918F5BDC200FDE351 /* FoodItem.h */,
+				DC79C07A18F5BDC200FDE351 /* FoodItem.m */,
+				3638974018F5D9AE003611A9 /* FoodList.h */,
+				3638974118F5D9AE003611A9 /* FoodList.m */,
+				DC1318DB18F45DF8005FA79F /* ScanViewController.h */,
+				DC1318DC18F45DF8005FA79F /* ScanViewController.m */,
+				DC6D153918F5DF7000058524 /* ListViewController.h */,
+				DC6D153A18F5DF7000058524 /* ListViewController.m */,
+				F339A9C018F70C4800728503 /* FormViewController.h */,
+				F339A9C118F70C4800728503 /* FormViewController.m */,
 				DC3C42BF18EA42000067458C /* Images.xcassets */,
+				FD6A369918F1F507006858AF /* icon2.0.PNG */,
+				FD6F3CBC18F6F0630017D64C /* icon2.0 copy.png */,
 				DC3C42AB18EA42000067458C /* Supporting Files */,
 			);
 			path = SnackTrack;
@@ -211,7 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				DCE4F36818EDE9DA00A8D865 /* Headers */,
-				DCE4F37F18EDE9DA00A8D865 /* libzbar.a */,
+				DC1318DE18F46513005FA79F /* libzbar.a */,
 				DCE4F38018EDE9DA00A8D865 /* Resources */,
 			);
 			path = ZBarSDK;
@@ -352,9 +388,11 @@
 				DC3C42B818EA42000067458C /* Main_iPhone.storyboard in Resources */,
 				DC3C42AF18EA42000067458C /* InfoPlist.strings in Resources */,
 				DCE4F38918EDE9DA00A8D865 /* zbar-samples.png in Resources */,
+				FD6F3CBD18F6F0630017D64C /* icon2.0 copy.png in Resources */,
 				DCE4F38718EDE9DA00A8D865 /* zbar-help.html in Resources */,
 				DCE4F38618EDE9DA00A8D865 /* zbar-back.png in Resources */,
 				DCE4F38818EDE9DA00A8D865 /* zbar-helpicons.png in Resources */,
+				FD6A369A18F1F507006858AF /* icon2.0.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,9 +411,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC3C42BE18EA42000067458C /* ViewController.m in Sources */,
+				3638974218F5D9AE003611A9 /* FoodList.m in Sources */,
+				DC6D153B18F5DF7000058524 /* ListViewController.m in Sources */,
+				DC79C07B18F5BDC200FDE351 /* FoodItem.m in Sources */,
 				DC3C42B518EA42000067458C /* AppDelegate.m in Sources */,
 				DC3C42B118EA42000067458C /* main.m in Sources */,
+				DC79C07718F5BC0E00FDE351 /* UPCdelegate.m in Sources */,
+				F339A9C218F70C4800728503 /* FormViewController.m in Sources */,
+				DC1318DD18F45DF8005FA79F /* ScanViewController.m in Sources */,
+				DC79C07818F5BC0E00FDE351 /* UPCParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
