@@ -10,7 +10,7 @@
 
 @implementation UPCParser
 
-+(NSDictionary *)parseUPC:(NSString*)upcCode
+/*+(NSDictionary *)parseUPC:(NSString*)upcCode
 {
     //Generating a URL to feed to the API
     NSString *combined = [@"http://api.upcdatabase.org/xml/e9b06e801511e9b6492ac371850bdc83/" stringByAppendingString:upcCode];
@@ -34,6 +34,21 @@
     
     //If it wasn't successful, return NULL;
     return NULL;
+}*/
+
++(NSDictionary *)parseUPC:(NSString*)upcCode
+{
+    NSString *url = @"http://www.outpan.com/api/get_product.php?barcode=";
+    url = [url stringByAppendingString:upcCode];
+    
+    //Create and send an HTTP request
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    
+    NSError *parseError = nil;
+    NSDictionary *jsonObj = [NSJSONSerialization JSONObjectWithData:response options:0 error:&parseError];
+    
+    return jsonObj;
 }
 
 @end
