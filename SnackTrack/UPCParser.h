@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UPCDelegate.h"
 
 @interface UPCParser : NSObject
 

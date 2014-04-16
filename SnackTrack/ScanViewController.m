@@ -28,7 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    //Makes sure that user interface elements do not appear underneath the navigation bar in iOS 7
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0)
+        self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)didReceiveMemoryWarning
