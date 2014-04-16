@@ -41,4 +41,17 @@
     return self;
 }
 
+-(BOOL)isEqualToFoodItem:(FoodItem *)otherItem
+{
+    if (self.upcCode != nil && otherItem.upcCode != nil)
+    {
+        return [self.upcCode isEqualToString:otherItem.upcCode];
+    }
+    else
+    {
+        //Comparison of name is not case sensitive
+        return [[self.name uppercaseString] isEqualToString:[otherItem.name uppercaseString]];
+    }
+}
+
 @end

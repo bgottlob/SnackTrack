@@ -15,7 +15,10 @@
 @property (nonatomic, copy) NSString *expiryDate;
 @property (nonatomic, copy) NSString *description;
 @property (nonatomic, copy) NSString *avgUseTime;
+@property (nonatomic) int quantity;
 
 -(id)initWithUPC:(NSString *)inUPC;
+
+-(BOOL)isEqualToFoodItem:(FoodItem *)otherItem;
 
 @end
