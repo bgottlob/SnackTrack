@@ -69,6 +69,22 @@
             </objects>
             <point key="canvasLocation" x="-317" y="33"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="muJ-rN-MkD">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="gRZ-hE-Uv6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WeH-Q0-uem"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ykp-Zh-9mj">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="U76-hh-UKh" kind="relationship" relationship="rootViewController" id="bGr-O4-Qej"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5e2-76-glf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1146" y="730"/>
+        </scene>
         <!--Form View Controller - Add-->
         <scene sceneID="dTK-ik-THV">
             <objects>
@@ -81,53 +97,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food Item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVj-nQ-smb">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Food Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yNT-Ef-7OS">
-                                <rect key="frame" x="20" y="232" width="280" height="30"/>
+                                <rect key="frame" x="20" y="196" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UPC" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1FJ-qc-gV0">
-                                <rect key="frame" x="20" y="284" width="280" height="30"/>
+                                <rect key="frame" x="20" y="234" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Expiry Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5j-r7-qDh">
-                                <rect key="frame" x="20" y="342" width="280" height="30"/>
+                                <rect key="frame" x="20" y="272" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UcQ-Xw-BfG">
-                                <rect key="frame" x="20" y="398" width="280" height="30"/>
+                                <rect key="frame" x="20" y="310" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Average Time Use" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ubu-hq-SQ4">
-                                <rect key="frame" x="20" y="456" width="280" height="30"/>
+                                <rect key="frame" x="20" y="348" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlU-Mk-jtQ">
-                                <rect key="frame" x="145" y="158" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickAdd:" destination="U76-hh-UKh" eventType="touchUpInside" id="5HC-p6-XrX"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKN-W7-dyw">
                                 <rect key="frame" x="105" y="80" width="110" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -151,7 +150,18 @@
                         <color key="backgroundColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="i7F-oW-YUb"/>
+                    <navigationItem key="navigationItem" title="New Snack" id="i7F-oW-YUb">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="cqD-8l-IOK">
+                            <connections>
+                                <action selector="clickCancel:" destination="U76-hh-UKh" id="CLk-PC-1eH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Afa-2d-jCb">
+                            <connections>
+                                <action selector="clickAdd:" destination="U76-hh-UKh" id="0PL-30-5kU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="avgUseTime" destination="Ubu-hq-SQ4" id="zzL-IU-zSa"/>
                         <outlet property="description" destination="UcQ-Xw-BfG" id="odE-JN-yw9"/>
@@ -163,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0eP-Xw-B4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079" y="822"/>
+            <point key="canvasLocation" x="1529" y="730"/>
         </scene>
         <!--Navigation Controller - List-->
         <scene sceneID="tln-NH-mf7">
@@ -227,12 +237,17 @@
                         <color key="tintColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" id="KEu-Iw-ixx"/>
-                    <navigationItem key="navigationItem" title="Snack List" id="61b-oO-jm1"/>
+                    <navigationItem key="navigationItem" title="Snack List" id="61b-oO-jm1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TAS-Jy-MCe">
+                            <connections>
+                                <segue destination="gRZ-hE-Uv6" kind="modal" id="Ovo-Un-Udx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="foodTable" destination="ctB-cG-oVy" id="xr5-oo-0SN"/>
                         <outlet property="view" destination="fKz-Gc-boP" id="9Sq-HA-kmx"/>
-                        <segue destination="U76-hh-UKh" kind="modal" identifier="addFood" id="Zyy-Ti-Qnt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y4p-aC-Gvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
