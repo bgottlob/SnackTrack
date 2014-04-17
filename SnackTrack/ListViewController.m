@@ -38,9 +38,6 @@
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    
     //Makes sure that user interface elements do not appear underneath the navigation bar in iOS 7
     if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0)
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -49,11 +46,6 @@
     foodTable.dataSource = self;
     
     [foodTable setBackgroundColor:[UIColor clearColor]];
-}
-
-- (void)insertNewObject:(id)sender
-{
-    [self presentViewController:FormViewController animated:YES completion:nil];
 }
 
 //Called whenever a list view is about to appear

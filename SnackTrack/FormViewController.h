@@ -20,4 +20,6 @@
 -(IBAction)clickAdd:(id)sender;
 -(BOOL)textFieldShouldReturn:(UITextField *)textField;
 
+-(IBAction)clickCancel:(id)sender;
+
 @end
