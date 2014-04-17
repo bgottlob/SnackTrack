@@ -35,9 +35,6 @@
 {
     [super viewDidLoad];
     
-    
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
     //Makes sure that user interface elements do not appear underneath the navigation bar in iOS 7
     if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0)
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -56,10 +53,13 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-    
     //Get a reference to the AppDelegate object
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    NSDate *object = appDelegate.foodList.foodArray[indexPath.row];
+    cell.textLabel.text = [object description];
     
     //Get a reference to the current item
     FoodItem *item = [appDelegate.foodList.foodArray objectAtIndex:indexPath.row];
@@ -80,13 +80,23 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //Get a reference to the AppDelegate object
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
         [appDelegate.foodList.foodArray removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
+        
+        [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
+
+        
+        // Request table view to reload
+        [tableView reloadData];
     }
 }
 
