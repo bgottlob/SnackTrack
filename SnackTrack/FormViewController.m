@@ -72,7 +72,14 @@
      NSString *documentsDirectory = [paths objectAtIndex:0];
      NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
      
-     [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
+    [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(IBAction)clickCancel:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)clickScan:(id)sender
