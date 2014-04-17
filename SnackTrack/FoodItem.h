@@ -21,4 +21,7 @@
 
 -(BOOL)isEqualToFoodItem:(FoodItem *)otherItem;
 
+//compares Two FoodItem Objects
+- (NSComparisonResult)compareTo:(FoodItem *)otherItem;
+
 @end

@@ -54,4 +54,15 @@
     }
 }
 
+//will return NSOrderedSame if names are the same
+//will return NSOrderedAscending if self goes after otherItem
+//will return NSOrderedDescending if self goes before otherItem
+- (NSComparisonResult)compareTo:(FoodItem *)otherItem
+{
+    NSComparisonResult res = [self.name caseInsensitiveCompare:otherItem.name];
+    return res;
+}
+
+
+
 @end

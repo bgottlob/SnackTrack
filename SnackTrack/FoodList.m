@@ -13,11 +13,13 @@
 
 @synthesize foodArray;
 
+
 -(id)init
 {
     if (self = [super init])
     {
         foodArray = [NSMutableArray array];
+        [foodArray sortUsingSelector:@selector(compareTo:)];
     }
     return self;
 }
