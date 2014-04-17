@@ -23,5 +23,6 @@
 
 //Returns YES if the food item was found and removed, returns NO if the food item was not found and could not be removed
 -(BOOL)removeFoodItemWithUPC:(NSString *)upcCode;
+-(void)removeObjectAtIndex:(NSInteger *)index;
 
 @end

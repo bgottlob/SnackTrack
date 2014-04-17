@@ -33,6 +33,9 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.foodName.delegate = self;
+    self.upc.delegate = self;
+    self.expiryDate.delegate = self;
+    self.description.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,6 +54,26 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(IBAction)clickAdd:(id)sender
+{
+    //Get a reference to the AppDelegate object
+     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+     
+     FoodItem *item = [[FoodItem alloc] initWithUPC:upc.text];
+     item.name = self.foodName.text;
+     item.expiryDate = self.expiryDate.text;
+     item.description = self.description.text;
+     item.avgUseTime = self.avgUseTime.text;
+     
+     [appDelegate.foodList addFoodItem:item];
+     
+     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+     NSString *documentsDirectory = [paths objectAtIndex:0];
+     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
+     
+     [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
+}
 
 -(IBAction)clickScan:(id)sender
 {
@@ -74,26 +97,6 @@
     [self presentViewController:reader animated:YES completion:nil];
 }
 
--(IBAction)clickAdd:(id)sender
-{
-    //Get a reference to the AppDelegate object
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    FoodItem *item = [[FoodItem alloc] initWithUPC:self.upc.text];
-    item.name = self.foodName.text;
-    item.expiryDate = self.expiryDate.text;
-    item.description = self.description.text;
-    item.avgUseTime = self.avgUseTime.text;
-    
-    [appDelegate.foodList addFoodItem:item];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
-    
-    [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
-}
-
 - (void) imagePickerController:(UIImagePickerController*)reader didFinishPickingMediaWithInfo:(NSDictionary*)info
 {
     id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
@@ -112,10 +115,16 @@
     NSLog(@"Item name: %@", item.name);
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.foodName) {
+        [self.upc becomeFirstResponder];
+    } else if (textField == self.upc) {
+        [self.expiryDate becomeFirstResponder];
+    } else if (textField == self.expiryDate) {
+        [self.description becomeFirstResponder];
+    } else if (textField == self.description) {
+        [self.description resignFirstResponder];
+    }
     return YES;
 }
 
