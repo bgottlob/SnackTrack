@@ -7,6 +7,8 @@
 //
 
 #import "ListViewController.h"
+#import "DetailViewController.h"
+#import "FormViewController.h"
 #import "FoodList.h"
 #import "FoodItem.h"
 #import "AppDelegate.h"
@@ -24,9 +26,20 @@
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    self.navigationItem.rightBarButtonItem = addButton;
     
     //Makes sure that user interface elements do not appear underneath the navigation bar in iOS 7
     if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0)
@@ -36,6 +49,11 @@
     foodTable.dataSource = self;
     
     [foodTable setBackgroundColor:[UIColor clearColor]];
+}
+
+- (void)insertNewObject:(id)sender
+{
+    [self presentViewController:FormViewController animated:YES completion:nil];
 }
 
 //Called whenever a list view is about to appear
@@ -62,6 +80,24 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [appDelegate.foodList.foodArray removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -73,6 +109,16 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     return [appDelegate.foodList.foodArray count];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        NSIndexPath *indexPath = [self.foodTable indexPathForSelectedRow];
+        NSDate *object = appDelegate.foodList.foodArray[indexPath.row];
+        [[segue destinationViewController] setDetailItem:object];
+    }
 }
 
 - (void)didReceiveMemoryWarning
