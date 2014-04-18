@@ -118,8 +118,8 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.foodTable indexPathForSelectedRow];
-        NSDate *object = appDelegate.foodList.foodArray[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+        FoodItem *foodItem = [appDelegate.foodList.foodArray objectAtIndex:indexPath.row];
+        [[segue destinationViewController] setDetailItem:foodItem];
     }
 }
 
