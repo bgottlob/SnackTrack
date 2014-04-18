@@ -11,13 +11,16 @@
 
 @implementation DetailViewController
 
-@synthesize detailItem, foodNameLabel;
+@synthesize detailItem, navigationItem;
 
 - (void)configureView
 {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.foodNameLabel.text = self.detailItem.name;
+        self.upcLabel.text = [@"UPC: " stringByAppendingString:detailItem.upcCode];
+        self.expiryLabel.text = [@"Expiry Date: " stringByAppendingString:detailItem.expiryDate];
+        self.descLabel.text = [@"Description: " stringByAppendingString:detailItem.description];
+        self.avgTimeLabel.text = [@"Average Use Time: " stringByAppendingString:detailItem.avgUseTime];
     }
 }
 
@@ -36,6 +39,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [self configureView];
+    [super viewWillAppear:animated];
+    
+    self.navigationItem.title = self.detailItem.name;
 }
 
 @end

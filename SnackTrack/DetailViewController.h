@@ -13,7 +13,10 @@
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) FoodItem *detailItem;
-
-@property (weak, nonatomic) IBOutlet UILabel *foodNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *upcLabel;
+@property (strong, nonatomic) IBOutlet UILabel *expiryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *descLabel;
+@property (strong, nonatomic) IBOutlet UILabel *avgTimeLabel;
+@property IBOutlet UINavigationItem *navigationItem;
 
 @end
