@@ -227,7 +227,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="Heg-sN-v1n" kind="push" id="Tt1-Qg-jJv"/>
+                                            <segue destination="Heg-sN-v1n" kind="push" identifier="showDetail" id="Tt1-Qg-jJv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -265,9 +265,21 @@
                     <view key="view" contentMode="scaleToFill" id="9Wt-wN-lhH">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQN-Mb-Ss4">
+                                <rect key="frame" x="20" y="20" width="280" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="0vV-EV-6ox"/>
+                    <connections>
+                        <outlet property="foodNameLabel" destination="DQN-Mb-Ss4" id="gof-Me-0oc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3o6-va-wn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

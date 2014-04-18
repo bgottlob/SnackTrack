@@ -7,45 +7,35 @@
 //
 
 #import "DetailViewController.h"
-
-@interface DetailViewController ()
-- (void)configureView;
-@end
+#import "FoodItem.h"
 
 @implementation DetailViewController
 
-#pragma mark - Managing the detail item
-
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
-}
+@synthesize detailItem, foodNameLabel;
 
 - (void)configureView
 {
     // Update the user interface for the detail item.
-
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        self.foodNameLabel.text = self.detailItem.name;
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    //Makes sure that user interface elements do not appear underneath the navigation bar in iOS 7
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0)
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     [self configureView];
 }
 
-- (void)didReceiveMemoryWarning
+//This method is called just before a view becomes visible to the user
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self configureView];
 }
 
 @end
