@@ -16,7 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *upcLabel;
 @property (strong, nonatomic) IBOutlet UILabel *expiryLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descLabel;
-@property (strong, nonatomic) IBOutlet UILabel *avgTimeLabel;
 @property IBOutlet UINavigationItem *navigationItem;
 
 @end

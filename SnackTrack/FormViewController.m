@@ -113,7 +113,6 @@
     item.upcCode = self.upc.text;
     item.expiryDate = self.expiryDate.text;
     item.description = self.description.text;
-    item.avgUseTime = self.avgUseTime.text;
 
     [appDelegate.foodList addFoodItem:item];
 
