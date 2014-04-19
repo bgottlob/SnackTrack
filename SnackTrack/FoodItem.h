@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *expiryDate;
 @property (nonatomic, copy) NSString *description;
 @property (nonatomic, copy) NSString *avgUseTime;
+@property (nonatomic, copy) NSMutableDictionary *DBattributes;
 @property (nonatomic) int quantity;
 
 -(id)initWithUPC:(NSString *)inUPC;

@@ -11,7 +11,7 @@
 
 @implementation FoodItem
 
-@synthesize name, upcCode;
+@synthesize name, upcCode, description, avgUseTime, DBattributes;
 
 -(id)initWithUPC:(NSString *)inUPC
 {
@@ -20,6 +20,13 @@
         upcCode = inUPC;
         NSDictionary *itemData = [UPCParser parseUPC:inUPC];
         name = [itemData valueForKey:@"name"];
+        description = [itemData valueForKey:@"description"];
+        if([itemData objectForKey:@"attributes"] != nil) // if there is an attribute key, copy over
+        {
+            DBattributes = [itemData objectForKey:@"attributes"]; //using object for key because we are getting more than a simple string or value
+        } else { //if there isn't an attribute key, make an empty one
+            DBattributes = [[NSMutableDictionary alloc] init];
+        }
     }
     
     return self;
@@ -29,6 +36,8 @@
 {
     [aCoder encodeObject:upcCode forKey:@"upcCode"];
     [aCoder encodeObject:name forKey:@"name"];
+    [aCoder encodeObject:description forKey:@"description"];
+    [aCoder encodeObject:DBattributes forKey:@"attributes"];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder
@@ -37,6 +46,8 @@
     {
         self.upcCode = [aDecoder decodeObjectForKey:@"upcCode"];
         self.name = [aDecoder decodeObjectForKey:@"name"];
+        self.description = [aDecoder decodeObjectForKey:@"description"];
+        self.DBattributes = [aDecoder decodeObjectForKey:@"attributes"];
     }
     return self;
 }
