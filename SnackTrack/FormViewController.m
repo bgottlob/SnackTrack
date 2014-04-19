@@ -10,19 +10,11 @@
 #import "FoodList.h"
 #import "FoodItem.h"
 #import "AppDelegate.h"
+#import "UPCParser.h"
 
 @implementation FormViewController
 
-@synthesize foodName, upc, expiryDate, description, avgUseTime, keyboardIsShown, scrollView;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize foodName, upc, expiryDate, description, avgUseTime, keyboardIsShown, scrollView, willAddToDB;
 
 - (void)viewDidLoad
 {
@@ -45,16 +37,12 @@
     [self.scrollView setContentSize:CGSizeMake(320, 504)];
     
     // register for keyboard notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:self.view.window];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:self.view.window];
     // register for keyboard notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:self.view.window];
-    keyboardIsShown = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:self.view.window];
+    self.keyboardIsShown = NO;
+    
+    self.willAddToDB = NO;
 }
 
 - (void)keyboardWillHide:(NSNotification *)n
@@ -118,23 +106,39 @@
 -(IBAction)clickAdd:(id)sender
 {
     //Get a reference to the AppDelegate object
-     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-     
-     FoodItem *item = [[FoodItem alloc] initWithUPC:upc.text];
-     item.name = self.foodName.text;
-     item.expiryDate = self.expiryDate.text;
-     item.description = self.description.text;
-     item.avgUseTime = self.avgUseTime.text;
-     
-     [appDelegate.foodList addFoodItem:item];
-     
-     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-     NSString *documentsDirectory = [paths objectAtIndex:0];
-     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
-     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    FoodItem *item = [[FoodItem alloc] init];
+    item.name = self.foodName.text;
+    item.upcCode = self.upc.text;
+    item.expiryDate = self.expiryDate.text;
+    item.description = self.description.text;
+    item.avgUseTime = self.avgUseTime.text;
+
+    [appDelegate.foodList addFoodItem:item];
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
+
     [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
 
+    if (willAddToDB)
+        [UPCParser addToDatabase:item];
+
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"No"])
+    {
+        willAddToDB = NO;
+    }
+    else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Yes"])
+    {
+        willAddToDB = YES;
+    }
 }
 
 -(IBAction)clickCancel:(id)sender
@@ -177,9 +181,15 @@
     
     self.upc.text = upcCode;
     
-    FoodItem *item = [[FoodItem alloc] initWithUPC:upcCode];
+    int dbErrorCode = 0;
+    FoodItem *item = [[FoodItem alloc] initWithUPC:upcCode errorCode:&dbErrorCode];
     self.foodName.text = item.name;
-    NSLog(@"Item name: %@", item.name);
+    
+    if (dbErrorCode == 100)
+    {
+        UIAlertView *notFoundAlert = [[UIAlertView alloc] initWithTitle:@"Item Not Found" message:@"This item has not been found in our database.  Would you like to add it to the database?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        [notFoundAlert show];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

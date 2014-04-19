@@ -17,10 +17,14 @@
 {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.upcLabel.text = [@"UPC: " stringByAppendingString:detailItem.upcCode];
-        self.expiryLabel.text = [@"Expiry Date: " stringByAppendingString:detailItem.expiryDate];
-        self.descLabel.text = [@"Description: " stringByAppendingString:detailItem.description];
-        self.avgTimeLabel.text = [@"Average Use Time: " stringByAppendingString:detailItem.avgUseTime];
+        if (detailItem.upcCode)
+            self.upcLabel.text = [@"UPC: " stringByAppendingString:detailItem.upcCode];
+        if (detailItem.expiryDate)
+            self.expiryLabel.text = [@"Expiry Date: " stringByAppendingString:detailItem.expiryDate];
+        if (detailItem.description)
+            self.descLabel.text = [@"Description: " stringByAppendingString:detailItem.description];
+        if (detailItem.avgUseTime)
+            self.avgTimeLabel.text = [@"Average Use Time: " stringByAppendingString:detailItem.avgUseTime];
     }
 }
 

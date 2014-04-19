@@ -18,7 +18,7 @@
 @property (nonatomic, copy) NSMutableDictionary *DBattributes;
 @property (nonatomic) int quantity;
 
--(id)initWithUPC:(NSString *)inUPC;
+-(id)initWithUPC:(NSString *)inUPC errorCode:(int *)errorCode;
 
 -(BOOL)isEqualToFoodItem:(FoodItem *)otherItem;
 
