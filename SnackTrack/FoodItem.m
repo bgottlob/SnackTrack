@@ -13,7 +13,7 @@
 
 @synthesize name, upcCode, description, avgUseTime, DBattributes;
 
--(id)initWithUPC:(NSString *)inUPC
+-(id)initWithUPC:(NSString *)inUPC errorCode:(int *)errorCode
 {
     if (self = [super init])
     {
@@ -21,6 +21,16 @@
         NSDictionary *itemData = [UPCParser parseUPC:inUPC];
         name = [itemData valueForKey:@"name"];
         description = [itemData valueForKey:@"description"];
+        
+        //Error checking
+        NSDictionary *error = [itemData objectForKey:@"error"];
+        NSLog(@"Error: %@", error);
+        
+        if (error)
+        {
+            *errorCode = [[error valueForKey:@"code"] intValue];
+        }
+        
         if([itemData objectForKey:@"attributes"] != nil) // if there is an attribute key, copy over
         {
             DBattributes = [itemData objectForKey:@"attributes"]; //using object for key because we are getting more than a simple string or value

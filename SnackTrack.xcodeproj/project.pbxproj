@@ -349,6 +349,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Brandon Gottlob";
 				TargetAttributes = {
+					DC3C42A018EA42000067458C = {
+						DevelopmentTeam = KJ8HFYYEVK;
+					};
 					DC3C42C418EA42000067458C = {
 						TestTargetID = DC3C42A018EA42000067458C;
 					};
@@ -549,6 +552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SnackTrack/SnackTrack-Prefix.pch";
 				INFOPLIST_FILE = "SnackTrack/SnackTrack-Info.plist";
@@ -557,6 +561,7 @@
 					"$(PROJECT_DIR)/SnackTrack/ZBarSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -567,6 +572,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SnackTrack/SnackTrack-Prefix.pch";
 				INFOPLIST_FILE = "SnackTrack/SnackTrack-Info.plist";
@@ -575,6 +581,7 @@
 					"$(PROJECT_DIR)/SnackTrack/ZBarSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
