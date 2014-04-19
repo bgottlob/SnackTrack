@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZBarSDK.h"
 
-@interface FormViewController : UIViewController <ZBarReaderDelegate, UITextFieldDelegate>
+@interface FormViewController : UIViewController <ZBarReaderDelegate, UITextFieldDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *foodName;
 @property (nonatomic, weak) IBOutlet UITextField *upc;
@@ -17,9 +17,12 @@
 @property (nonatomic, weak) IBOutlet UITextField *description;
 @property (nonatomic, weak) IBOutlet UITextField *avgUseTime;
 
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
+@property (nonatomic) BOOL keyboardIsShown;
+
 -(IBAction)clickAdd:(id)sender;
 -(BOOL)textFieldShouldReturn:(UITextField *)textField;
-
 -(IBAction)clickCancel:(id)sender;
 
 @end
