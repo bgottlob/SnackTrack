@@ -11,7 +11,7 @@
 
 @implementation FoodItem
 
-@synthesize name, upcCode;
+@synthesize name, upcCode, description, avgUseTime;
 
 -(id)initWithUPC:(NSString *)inUPC
 {
@@ -20,6 +20,7 @@
         upcCode = inUPC;
         NSDictionary *itemData = [UPCParser parseUPC:inUPC];
         name = [itemData valueForKey:@"name"];
+        description = [itemData valueForKey:@"description"];
     }
     
     return self;
@@ -29,6 +30,7 @@
 {
     [aCoder encodeObject:upcCode forKey:@"upcCode"];
     [aCoder encodeObject:name forKey:@"name"];
+    [aCoder encodeObject:description];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder
