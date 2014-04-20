@@ -14,7 +14,7 @@
 
 @implementation FormViewController
 
-@synthesize foodName, upc, expiryDate, description, avgUseTime, keyboardIsShown, scrollView, willAddToDB;
+@synthesize foodName, upc, expiryDate, description, keyboardIsShown, scrollView, willAddToDB, itemToAdd;
 
 - (void)viewDidLoad
 {
@@ -27,11 +27,12 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
+    itemToAdd = [[FoodItem alloc] init];
+    
     self.foodName.delegate = self;
     self.upc.delegate = self;
     self.expiryDate.delegate = self;
     self.description.delegate = self;
-    self.avgUseTime.delegate = self;
     
     //504 is the height of the scroll view on iPhone 5 screens!!!!
     [self.scrollView setContentSize:CGSizeMake(320, 504)];
@@ -108,13 +109,12 @@
     //Get a reference to the AppDelegate object
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
-    FoodItem *item = [[FoodItem alloc] init];
-    item.name = self.foodName.text;
-    item.upcCode = self.upc.text;
-    item.expiryDate = self.expiryDate.text;
-    item.description = self.description.text;
+    itemToAdd.name = self.foodName.text;
+    itemToAdd.upcCode = self.upc.text;
+    itemToAdd.expiryDate = self.expiryDate.text;
+    itemToAdd.description = self.description.text;
 
-    [appDelegate.foodList addFoodItem:item];
+    [appDelegate.foodList addFoodItem:itemToAdd];
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -123,7 +123,7 @@
     [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
 
     if (willAddToDB)
-        [UPCParser addToDatabase:item];
+        [UPCParser addToDatabase:itemToAdd];
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -181,8 +181,8 @@
     self.upc.text = upcCode;
     
     int dbErrorCode = 0;
-    FoodItem *item = [[FoodItem alloc] initWithUPC:upcCode errorCode:&dbErrorCode];
-    self.foodName.text = item.name;
+    itemToAdd = [[FoodItem alloc] initWithUPC:upcCode errorCode:&dbErrorCode];
+    self.foodName.text = itemToAdd.name;
     
     if (dbErrorCode == 100)
     {

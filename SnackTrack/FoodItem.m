@@ -38,6 +38,17 @@
         } else { //if there isn't an attribute key, make an empty one
             DBattributes = [[NSMutableDictionary alloc] init];
         }
+        
+        NSArray *images = [itemData objectForKey:@"images"];
+        if (images)
+        {
+            //Just returns the URL of the first image in the array
+            NSString *imageURL = [images objectAtIndex:0];
+            NSURL *url = [NSURL URLWithString:imageURL];
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            self.image = [[UIImage alloc] initWithData:data];
+        }
+        
     }
     
     return self;

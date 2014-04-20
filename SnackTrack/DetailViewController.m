@@ -11,7 +11,7 @@
 
 @implementation DetailViewController
 
-@synthesize detailItem, navigationItem;
+@synthesize detailItem, navigationItem, imageView;
 
 - (void)configureView
 {
@@ -23,6 +23,8 @@
             self.expiryLabel.text = [@"Expiry Date: " stringByAppendingString:detailItem.expiryDate];
         if (detailItem.description)
             self.descLabel.text = [@"Description: " stringByAppendingString:detailItem.description];
+        if (detailItem.image)
+            [self.imageView setImage:detailItem.image];
     }
 }
 
