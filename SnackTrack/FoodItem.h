@@ -17,6 +17,8 @@
 @property (nonatomic, copy) NSMutableDictionary *DBattributes;
 @property (nonatomic) int quantity;
 
+@property (nonatomic, strong) UIImage *image;
+
 -(id)initWithUPC:(NSString *)inUPC errorCode:(int *)errorCode;
 
 -(BOOL)isEqualToFoodItem:(FoodItem *)otherItem;
