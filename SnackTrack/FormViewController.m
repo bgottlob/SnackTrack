@@ -199,9 +199,7 @@
     } else if (textField == self.expiryDate) {
         [self.description becomeFirstResponder];
     } else if (textField == self.description) {
-        [self.avgUseTime becomeFirstResponder];
-    } else if (textField == self.avgUseTime) {
-        [self.avgUseTime resignFirstResponder];
+        [self.description resignFirstResponder];
     }
     return YES;
 }
