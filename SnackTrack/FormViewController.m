@@ -44,6 +44,7 @@
     self.keyboardIsShown = NO;
     
     self.willAddToDB = NO;
+    
 }
 
 - (void)keyboardWillHide:(NSNotification *)n
