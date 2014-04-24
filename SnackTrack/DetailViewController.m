@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+    
     //Makes sure that user interface elements do not appear underneath the navigation bar in iOS 7
     if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0)
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -46,6 +46,11 @@
     [super viewWillAppear:animated];
     
     self.navigationItem.title = self.detailItem.name;
+}
+
+-(IBAction)clickEdit:(id)sender
+{
+    [self performSegueWithIdentifier: @"editFood" sender:detailItem];
 }
 
 @end

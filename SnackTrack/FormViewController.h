@@ -13,6 +13,7 @@
 
 @interface FormViewController : UIViewController <ZBarReaderDelegate, UITextFieldDelegate, UIScrollViewDelegate, UIAlertViewDelegate>
 
+@property (nonatomic, weak) IBOutlet UITextField *qtyField;
 @property (nonatomic, weak) IBOutlet UITextField *foodName;
 @property (nonatomic, weak) IBOutlet UITextField *upc;
 @property (nonatomic, weak) IBOutlet UITextField *expiryDate;
@@ -23,11 +24,15 @@
 @property (nonatomic) BOOL keyboardIsShown;
 
 @property (nonatomic) BOOL willAddToDB;
-
+@property (strong, nonatomic) FoodItem *detailItem;
 @property (nonatomic, strong) FoodItem *itemToAdd;
+@property (nonatomic, weak) UIStepper* stepper;
+
 
 -(IBAction)clickAdd:(id)sender;
--(BOOL)textFieldShouldReturn:(UITextField *)textField;
 -(IBAction)clickCancel:(id)sender;
+-(IBAction)stepperPressed:(id)sender;
+-(IBAction)didEndOnExit:(id)sender;
+-(BOOL)textFieldShouldReturn:(UITextField *)textField;
 
 @end

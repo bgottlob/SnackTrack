@@ -19,4 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property IBOutlet UINavigationItem *navigationItem;
 
+-(IBAction)clickEdit:(id)sender;
+
 @end

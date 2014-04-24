@@ -36,6 +36,7 @@
 		DCE4F39118EDEAA800A8D865 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F39018EDEAA800A8D865 /* QuartzCore.framework */; };
 		DCE4F39318EDEAB200A8D865 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F39218EDEAB200A8D865 /* libiconv.dylib */; };
 		F339A9C218F70C4800728503 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F339A9C118F70C4800728503 /* FormViewController.m */; };
+		F38E2321190605DB003A1302 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F38E2320190605DB003A1302 /* EditViewController.m */; };
 		F3AC60C51900093200862B7F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AC60C41900093200862B7F /* DetailViewController.m */; };
 		FD6A369A18F1F507006858AF /* icon2.0.PNG in Resources */ = {isa = PBXBuildFile; fileRef = FD6A369918F1F507006858AF /* icon2.0.PNG */; };
 		FD6F3CBD18F6F0630017D64C /* icon2.0 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6F3CBC18F6F0630017D64C /* icon2.0 copy.png */; };
@@ -110,6 +111,8 @@
 		DCE4F39218EDEAB200A8D865 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		F339A9C018F70C4800728503 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewController.h; sourceTree = "<group>"; };
 		F339A9C118F70C4800728503 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewController.m; sourceTree = "<group>"; };
+		F38E231F190605DB003A1302 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		F38E2320190605DB003A1302 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		F3AC60C31900093200862B7F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		F3AC60C41900093200862B7F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		FD6A369918F1F507006858AF /* icon2.0.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.0.PNG; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				DC3C42B318EA42000067458C /* AppDelegate.h */,
 				DC3C42B418EA42000067458C /* AppDelegate.m */,
 				DC3C42B618EA42000067458C /* Main_iPhone.storyboard */,
+				F38E231F190605DB003A1302 /* EditViewController.h */,
+				F38E2320190605DB003A1302 /* EditViewController.m */,
 				DC3C42B918EA42000067458C /* Main_iPad.storyboard */,
 				DC79C07518F5BC0E00FDE351 /* UPCParser.h */,
 				DC79C07618F5BC0E00FDE351 /* UPCParser.m */,
@@ -410,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3638974218F5D9AE003611A9 /* FoodList.m in Sources */,
+				F38E2321190605DB003A1302 /* EditViewController.m in Sources */,
 				DC6D153B18F5DF7000058524 /* ListViewController.m in Sources */,
 				F3AC60C51900093200862B7F /* DetailViewController.m in Sources */,
 				DC79C07B18F5BDC200FDE351 /* FoodItem.m in Sources */,

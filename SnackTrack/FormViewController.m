@@ -7,6 +7,7 @@
 //
 
 #import "FormViewController.h"
+#import "EditViewController.h"
 #import "FoodList.h"
 #import "FoodItem.h"
 #import "AppDelegate.h"
@@ -14,7 +15,7 @@
 
 @implementation FormViewController
 
-@synthesize foodName, upc, expiryDate, description, keyboardIsShown, scrollView, willAddToDB, itemToAdd;
+@synthesize foodName, upc, expiryDate, description, keyboardIsShown, scrollView, willAddToDB, itemToAdd, detailItem;
 
 - (void)viewDidLoad
 {
@@ -27,12 +28,32 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
+    //Setup UIStepper for quantity value
+    [self.stepper setMinimumValue:1];
+    [self.stepper setContinuous:YES];
+    [self.stepper setWraps:NO];
+    [self.stepper setStepValue:1];
+    [self.stepper setMaximumValue:999];
+    [self.stepper setValue:1];
+    self.qtyField.text = [NSString stringWithFormat:@"%g",self.stepper.value];
+    
     itemToAdd = [[FoodItem alloc] init];
     
     self.foodName.delegate = self;
     self.upc.delegate = self;
     self.expiryDate.delegate = self;
     self.description.delegate = self;
+    self.qtyField.delegate = self;
+    
+    foodName.text = detailItem.name;
+    
+    //Setup UIDatePicker for expiration date input
+    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    
+    [datePicker setDate:[NSDate date]];
+    [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
+    [expiryDate setInputView:datePicker];
     
     //504 is the height of the scroll view on iPhone 5 screens!!!!
     [self.scrollView setContentSize:CGSizeMake(320, 504)];
@@ -113,6 +134,7 @@
     itemToAdd.upcCode = self.upc.text;
     itemToAdd.expiryDate = self.expiryDate.text;
     itemToAdd.description = self.description.text;
+    itemToAdd.quantity = [[self.qtyField text] intValue];
 
     [appDelegate.foodList addFoodItem:itemToAdd];
 
@@ -191,7 +213,39 @@
     }
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if([expiryDate isFirstResponder]){
+        UIDatePicker *picker = (UIDatePicker*)expiryDate.inputView;
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+        expiryDate.text = [dateFormatter stringFromDate:picker.date];
+    }
+}
+
+-(void)updateTextField:(id)sender
+{
+    if([expiryDate isFirstResponder]){
+        UIDatePicker *picker = (UIDatePicker*)expiryDate.inputView;
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+        expiryDate.text = [dateFormatter stringFromDate:picker.date];
+    }
+}
+
+-(IBAction)stepperPressed:(id)sender
+{
+    self.qtyField.text= [NSString stringWithFormat:@"%g", self.stepper.value];
+}
+
+-(IBAction)didEndOnExit:(id)sender {
+    
+    self.stepper.value = self.qtyField.text.doubleValue;
+    self.qtyField.text=[NSString stringWithFormat:@"%g",self.stepper.value];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     if (textField == self.foodName) {
         [self.upc becomeFirstResponder];
     } else if (textField == self.upc) {

@@ -9,6 +9,7 @@
 #import "ListViewController.h"
 #import "DetailViewController.h"
 #import "FormViewController.h"
+#import "EditViewController.h"
 #import "FoodList.h"
 #import "FoodItem.h"
 #import "AppDelegate.h"
@@ -51,6 +52,12 @@
     [foodTable reloadData];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Get a reference to the AppDelegate object
@@ -72,12 +79,6 @@
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Get a reference to the AppDelegate object
@@ -93,10 +94,20 @@
         NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
         
         [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
-
+        
         
         // Request table view to reload
         [tableView reloadData];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        NSIndexPath *indexPath = [self.foodTable indexPathForSelectedRow];
+        FoodItem *foodItem = [appDelegate.foodList.foodArray objectAtIndex:indexPath.row];
+        [[segue destinationViewController] setDetailItem:foodItem];
     }
 }
 
@@ -113,16 +124,6 @@
     return [appDelegate.foodList.foodArray count];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.foodTable indexPathForSelectedRow];
-        FoodItem *foodItem = [appDelegate.foodList.foodArray objectAtIndex:indexPath.row];
-        [[segue destinationViewController] setDetailItem:foodItem];
-    }
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -130,14 +131,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
