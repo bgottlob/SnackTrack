@@ -120,8 +120,17 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
     itemToAdd.name = self.foodName.text;
-    itemToAdd.upcCode = self.upc.text;
-    itemToAdd.description = self.description.text;
+    
+    if ([self.upc.text isEqualToString:@""])
+        itemToAdd.upcCode = nil;
+    else
+        itemToAdd.upcCode = self.upc.text;
+    
+    if ([self.upc.text isEqualToString:@""])
+        itemToAdd.description = nil;
+    else
+        itemToAdd.description = self.description.text;
+    
     itemToAdd.quantity = [[self.qtyField text] intValue];
 
     [appDelegate.foodList addFoodItem:itemToAdd];

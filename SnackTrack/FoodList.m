@@ -97,8 +97,4 @@
     }
 }
 
--(void)removeObjectAtIndex:(NSInteger *)index {
-    
-}
-
 @end
