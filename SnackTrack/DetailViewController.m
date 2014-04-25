@@ -11,7 +11,7 @@
 
 @implementation DetailViewController
 
-@synthesize detailItem, navigationItem, imageView;
+@synthesize detailItem, navigationItem, imageView, quantityLabel;
 
 - (void)configureView
 {
@@ -20,11 +20,17 @@
         if (detailItem.upcCode)
             self.upcLabel.text = [@"UPC: " stringByAppendingString:detailItem.upcCode];
         if (detailItem.expiryDate)
-            self.expiryLabel.text = [@"Expiry Date: " stringByAppendingString:detailItem.expiryDate];
+        {
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateStyle:NSDateFormatterMediumStyle];
+            self.expiryLabel.text = [@"Expiry Date: " stringByAppendingString:[formatter stringFromDate:detailItem.expiryDate]];
+        }
         if (detailItem.description)
             self.descLabel.text = [@"Description: " stringByAppendingString:detailItem.description];
         if (detailItem.image)
             [self.imageView setImage:detailItem.image];
+        
+        self.quantityLabel.text = [NSString stringWithFormat:@"Quantity: %i", detailItem.quantity];
     }
 }
 

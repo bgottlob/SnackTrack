@@ -35,7 +35,6 @@
     }
     else
     {
-        item.quantity = 1;
         [foodArray addObject:item];
     }
 }
