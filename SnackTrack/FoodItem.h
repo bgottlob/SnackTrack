@@ -12,7 +12,7 @@
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *upcCode;
-@property (nonatomic, copy) NSString *expiryDate;
+@property (nonatomic, copy) NSDate *expiryDate;
 @property (nonatomic, copy) NSString *description;
 @property (nonatomic, copy) NSMutableDictionary *DBattributes;
 @property (nonatomic) int quantity;

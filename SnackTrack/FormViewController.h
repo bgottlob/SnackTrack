@@ -26,7 +26,7 @@
 @property (nonatomic) BOOL willAddToDB;
 @property (strong, nonatomic) FoodItem *detailItem;
 @property (nonatomic, strong) FoodItem *itemToAdd;
-@property (nonatomic, weak) UIStepper* stepper;
+@property (nonatomic, weak) IBOutlet UIStepper* stepper;
 
 
 -(IBAction)clickAdd:(id)sender;

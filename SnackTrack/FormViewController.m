@@ -15,7 +15,7 @@
 
 @implementation FormViewController
 
-@synthesize foodName, upc, expiryDate, description, keyboardIsShown, scrollView, willAddToDB, itemToAdd, detailItem;
+@synthesize foodName, upc, expiryDate, description, keyboardIsShown, scrollView, willAddToDB, itemToAdd, detailItem, stepper;
 
 - (void)viewDidLoad
 {
@@ -35,7 +35,7 @@
     [self.stepper setStepValue:1];
     [self.stepper setMaximumValue:999];
     [self.stepper setValue:1];
-    self.qtyField.text = [NSString stringWithFormat:@"%g",self.stepper.value];
+    self.qtyField.text = [NSString stringWithFormat:@"%i",(int)self.stepper.value];
     
     itemToAdd = [[FoodItem alloc] init];
     
@@ -114,17 +114,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 -(IBAction)clickAdd:(id)sender
 {
     //Get a reference to the AppDelegate object
@@ -132,7 +121,6 @@
 
     itemToAdd.name = self.foodName.text;
     itemToAdd.upcCode = self.upc.text;
-    itemToAdd.expiryDate = self.expiryDate.text;
     itemToAdd.description = self.description.text;
     itemToAdd.quantity = [[self.qtyField text] intValue];
 
@@ -220,6 +208,7 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MM-dd-yyyy"];
         expiryDate.text = [dateFormatter stringFromDate:picker.date];
+        itemToAdd.expiryDate = picker.date;
     }
 }
 
@@ -230,12 +219,13 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MM-dd-yyyy"];
         expiryDate.text = [dateFormatter stringFromDate:picker.date];
+        itemToAdd.expiryDate = picker.date;
     }
 }
 
--(IBAction)stepperPressed:(id)sender
+-(IBAction)stepperPressed:(UIStepper *)sender
 {
-    self.qtyField.text= [NSString stringWithFormat:@"%g", self.stepper.value];
+    self.qtyField.text= [NSString stringWithFormat:@"%i", (int)sender.value];
 }
 
 -(IBAction)didEndOnExit:(id)sender {
