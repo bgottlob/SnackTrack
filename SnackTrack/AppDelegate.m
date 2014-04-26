@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "FoodList.h"
+#import "FoodItem.h"
 
 @implementation AppDelegate
 
@@ -30,9 +31,43 @@
         foodList = [NSKeyedUnarchiver unarchiveObjectWithFile:listFile];
     }
     
+    [self sendExpirationNotifications];
+    
     return YES;
 }
-							
+
+-(void)sendExpirationNotifications
+{
+    for (FoodItem *item in foodList.foodArray)
+    {
+        if (item.expiryDate != nil)
+        {
+            NSTimeInterval secondsInADay = 86400;
+            NSTimeInterval secondsFromNow = [item.expiryDate timeIntervalSinceNow];
+            
+            if (secondsFromNow < 0) //If the time interval is negative, the expiration date has passed
+            {
+                NSString *alertMessage = [NSString stringWithFormat:@"Your %@ has expired!", item.name];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Expiration Notification" message:alertMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            }
+            else if (secondsFromNow <= secondsInADay * 2) //If the time interval is within 2 days, display a notification
+            {
+                NSString *alertMessage = [NSString stringWithFormat:@"Your %@ is going to expire within 2 days!", item.name];
+                
+                if (secondsFromNow <= secondsInADay)
+                {
+                    alertMessage = [NSString stringWithFormat:@"Your %@ is going to expire within 1 day!", item.name];
+                }
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Expiration Notification" message:alertMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            }
+        }
+    }
+}
+				
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

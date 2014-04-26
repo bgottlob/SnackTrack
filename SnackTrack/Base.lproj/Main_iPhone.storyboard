@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="163" y="-62"/>
         </scene>
-        <!--View Controller - Snack Track-->
+        <!--Home View Controller - Snack Track-->
         <scene sceneID="gVv-sr-les">
             <objects>
-                <viewController id="Hf9-qX-yh0" colorLabel="IBBuiltInLabel-Yellow" sceneMemberID="viewController">
+                <viewController id="Hf9-qX-yh0" customClass="HomeViewController" colorLabel="IBBuiltInLabel-Yellow" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r4H-5b-jnS"/>
                         <viewControllerLayoutGuide type="bottom" id="svv-do-Kzw"/>
@@ -36,6 +36,18 @@
                                 <rect key="frame" x="8" y="75" width="304" height="306"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tey-fY-584">
+                                <rect key="frame" x="136" y="382" width="48" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
+                                <state key="normal" title="Help">
+                                    <color key="titleColor" red="0.82745098039999998" green="0.8862745098" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gWP-l4-ZyA" kind="push" id="oM9-Iu-6Qh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.40784313725490196" green="0.70196078431372544" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,6 +61,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BbR-Ao-yAC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="567" y="-62"/>
+        </scene>
+        <!--View Controller - Help-->
+        <scene sceneID="DNl-R2-mEp">
+            <objects>
+                <viewController id="gWP-l4-ZyA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0dc-sI-M8N"/>
+                        <viewControllerLayoutGuide type="bottom" id="vJ5-Z0-P6U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N98-6g-7EY">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="34y-xW-hxs">
+                                <rect key="frame" x="40" y="9" width="240" height="435"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">Welcome to the interactive snacking experience SnackTrack! To get started, select a snack you want to include in your list. Tap the List button at the bottom of the screen to see your list. To add your new item hit the "+" symbol at the top right corner of your screen. Scan the item to add it to your Snack list. Select the correct quantity you wish to add and input any other information into the existing fields. To edit a specific snack, select it from the snack list and correct any information necessary. To delete food from your list, find the specific item and swipe left to select delete. Now that your snack list is set up, sit back, relax, and enjoy snacking!</mutableString>
+                                <color key="textColor" red="0.82745098039999998" green="0.8862745098" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Help" id="bcY-U3-7mT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FgQ-1v-eeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992" y="-56"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LUc-G8-A8g">
@@ -118,7 +160,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Expiry Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5j-r7-qDh">
-                                        <rect key="frame" x="20" y="344" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="381" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.82745098039999998" green="0.8862745098" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -126,7 +168,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UcQ-Xw-BfG">
-                                        <rect key="frame" x="20" y="401" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="330" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.82745098039999998" green="0.8862745098" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -448,7 +490,6 @@
     <resources>
         <image name="icon2.0 copy.png" width="304" height="306"/>
     </resources>
-    <color key="tintColor" red="0.40784313725490196" green="0.70196078431372544" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
