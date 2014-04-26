@@ -13,7 +13,7 @@
 
 @synthesize foodArray;
 
-
+//Construct the list
 -(id)init
 {
     if (self = [super init])
@@ -23,27 +23,30 @@
     }
     return self;
 }
-
+//Add an item
 -(void)addFoodItem:(FoodItem *)item
 {
+	//Search the list for the item
     int index = [self searchForFoodItem:item];
-    
+    //if it is found, just increment quantity
     if (index != -1)
     {
         FoodItem *currentItem = [self.foodArray objectAtIndex:index];
         currentItem.quantity++;
     }
-    else
+	//otherwise put it in the array as a new object.
+    else 
     {
         [foodArray addObject:item];
     }
 }
 
+// Encode data for storage
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:foodArray forKey:@"foodArray"];
 }
-
+// Construct an object from stored data. 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init])
@@ -53,6 +56,7 @@
     return self;
 }
 
+//Searches linearly for the item in the list.
 -(int)searchForFoodItem:(FoodItem *)item
 {
     //Linear search
@@ -67,13 +71,14 @@
     //If this line is reached, the item was not found
     return -1;
 }
-
+// Removes an item.
 -(void)removeFoodItemAtIndex:(int)index
 {
     FoodItem *removalItem = [self.foodArray objectAtIndex:index];
-    
+    //If the quantity is more than 1 just decrement
     if (removalItem.quantity > 1)
         removalItem.quantity--;
+	//otherwise remove the entry.
     else
         [self.foodArray removeObjectAtIndex:index];
 }

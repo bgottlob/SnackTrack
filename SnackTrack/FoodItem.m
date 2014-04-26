@@ -15,11 +15,13 @@
 
 -(id)initWithUPC:(NSString *)inUPC errorCode:(int *)errorCode
 {
+	//Initiate the superclass - if it fails do not execute the following
     if (self = [super init])
     {
+		//Set up item attributes
         quantity = 1;
         upcCode = inUPC;
-        NSDictionary *itemData = [UPCParser parseUPC:inUPC];
+        NSDictionary *itemData = [UPCParser parseUPC:inUPC]; //check against the database and initialize a dictionary from the data
         name = [itemData valueForKey:@"name"];
         description = [itemData valueForKey:@"description"];
         
@@ -54,6 +56,7 @@
     return self;
 }
 
+//Encodes the object into data for storage
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:upcCode forKey:@"upcCode"];
@@ -63,9 +66,10 @@
     [aCoder encodeObject:DBattributes forKey:@"attributes"];
     [aCoder encodeObject:expiryDate forKey:@"expiryDate"];
 }
-
+//Constructs the object from decoded data
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
+	//Initiate the superclass - if it fails do not execute the following
     if (self = [super init])
     {
         self.upcCode = [aDecoder decodeObjectForKey:@"upcCode"];
@@ -78,8 +82,10 @@
     return self;
 }
 
+//Checks if a food item is equal to another.
 -(BOOL)isEqualToFoodItem:(FoodItem *)otherItem
 {
+	//First try to compare upc codes, then try comparing the names.
     if (self.upcCode != nil && otherItem.upcCode != nil)
     {
         return [self.upcCode isEqualToString:otherItem.upcCode];

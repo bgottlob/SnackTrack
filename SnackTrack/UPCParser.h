@@ -12,6 +12,7 @@
 
 //Returns a dictionary filled with information about a product with the given UPC Code
 +(NSDictionary *)parseUPC:(NSString*)upcCode;
+//Adds an item to the database
 +(void)addToDatabase:(FoodItem*)upcCode;
 
 @end

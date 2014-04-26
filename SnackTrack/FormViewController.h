@@ -12,13 +12,13 @@
 @class FoodItem;
 
 @interface FormViewController : UIViewController <ZBarReaderDelegate, UITextFieldDelegate, UIScrollViewDelegate, UIAlertViewDelegate>
-
+//The information about the item.
 @property (nonatomic, weak) IBOutlet UITextField *qtyField;
 @property (nonatomic, weak) IBOutlet UITextField *foodName;
 @property (nonatomic, weak) IBOutlet UITextField *upc;
 @property (nonatomic, weak) IBOutlet UITextField *expiryDate;
 @property (nonatomic, weak) IBOutlet UITextField *description;
-
+//Information about the view that scrolls the fields
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic) BOOL keyboardIsShown;
@@ -28,7 +28,7 @@
 @property (nonatomic, strong) FoodItem *itemToAdd;
 @property (nonatomic, weak) IBOutlet UIStepper* stepper;
 
-
+//Actions
 -(IBAction)clickAdd:(id)sender;
 -(IBAction)clickCancel:(id)sender;
 -(IBAction)stepperPressed:(id)sender;

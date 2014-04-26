@@ -16,6 +16,7 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
+	// Checks if each property is initialized before displaying
     if (self.detailItem) {
         if (detailItem.upcCode)
             self.upcLabel.text = [@"UPC: " stringByAppendingString:detailItem.upcCode];
@@ -54,6 +55,7 @@
     self.navigationItem.title = self.detailItem.name;
 }
 
+//moves to edit view
 -(IBAction)clickEdit:(id)sender
 {
     [self performSegueWithIdentifier: @"editFood" sender:detailItem];

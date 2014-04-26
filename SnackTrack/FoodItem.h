@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FoodItem : NSObject <NSCoding>
-
+//Item properties
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *upcCode;
 @property (nonatomic, copy) NSDate *expiryDate;
@@ -19,8 +19,10 @@
 
 @property (nonatomic, strong) UIImage *image;
 
+//Constructs a food item from a specific UPC code.
 -(id)initWithUPC:(NSString *)inUPC errorCode:(int *)errorCode;
 
+//Checks if two food items are the same
 -(BOOL)isEqualToFoodItem:(FoodItem *)otherItem;
 
 //compares Two FoodItem Objects
