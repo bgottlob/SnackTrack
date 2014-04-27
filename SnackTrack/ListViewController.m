@@ -16,7 +16,7 @@
 
 @implementation ListViewController
 
-@synthesize foodTable;
+@synthesize foodTable, deleteIndex;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -85,19 +85,31 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        [appDelegate.foodList.foodArray removeObjectAtIndex:indexPath.row];
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        FoodItem *foodToDelete = [appDelegate.foodList.foodArray objectAtIndex:indexPath.row];
+        deleteIndex = 0;
         
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
+        if (foodToDelete.quantity > 1)
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"You have more than one of this item.  Would you like to delete one or all of them?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Just One", @"All", nil];
+            [alertView show];
+        }
+        else
+        {
+            [appDelegate.foodList.foodArray removeObjectAtIndex:indexPath.row];
         
-        [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
-        
-        
-        // Request table view to reload
-        [tableView reloadData];
+            // Delete the row from the data source
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            
+            //Save the updated food list
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0];
+            NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
+            
+            [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
+            
+            // Request table view to reload
+            [tableView reloadData];
+        }
     }
 }
 
@@ -130,15 +142,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //Get a reference to the AppDelegate object
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Just One"])
+    {
+        [appDelegate.foodList removeFoodItemAtIndex:deleteIndex];
+    }
+    else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"All"])
+    {
+        [appDelegate.foodList.foodArray removeObjectAtIndex:deleteIndex];
+    }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
+    
+    [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
+    
+    [self.foodTable reloadData];
+}
 
 @end

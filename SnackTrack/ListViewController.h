@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *foodTable;
+
+@property (nonatomic) int deleteIndex;
 
 @end
