@@ -33,8 +33,7 @@
     [self.stepper setContinuous:YES];
     [self.stepper setWraps:NO];
     [self.stepper setStepValue:1];
-    [self.stepper setMaximumValue:999];
-    [self.stepper setValue:1];
+    [self.stepper setMaximumValue:100];
     self.qtyField.text = [NSString stringWithFormat:@"%i",(int)self.stepper.value];
     
     itemToAdd = [[FoodItem alloc] init];
@@ -52,6 +51,7 @@
     datePicker.datePickerMode = UIDatePickerModeDate;
     
     [datePicker setDate:[NSDate date]];
+    [datePicker setMinimumDate: [NSDate date]];
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     [expiryDate setInputView:datePicker];
     
@@ -144,7 +144,7 @@
     if (willAddToDB)
         [UPCParser addToDatabase:itemToAdd];
 
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -161,7 +161,7 @@
 
 -(IBAction)clickCancel:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(IBAction)clickScan:(id)sender
@@ -235,12 +235,6 @@
 -(IBAction)stepperPressed:(UIStepper *)sender
 {
     self.qtyField.text= [NSString stringWithFormat:@"%i", (int)sender.value];
-}
-
--(IBAction)didEndOnExit:(id)sender {
-    
-    self.stepper.value = self.qtyField.text.doubleValue;
-    self.qtyField.text=[NSString stringWithFormat:@"%g",self.stepper.value];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
