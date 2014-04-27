@@ -9,8 +9,11 @@
 #import "UPCParser.h"
 #import "FoodItem.h"
 
+//Parses the information for each food item
+//from the database
 @implementation UPCParser
 
+//Parses information about food item given from the database
 +(NSDictionary *)parseUPC:(NSString*)upcCode
 {
     NSString *url = @"http://www.outpan.com/api/get_product.php?barcode=";
@@ -29,6 +32,7 @@
     return jsonObj;
 }
 
+//Adds food items that are not currently in the database
 +(void)addToDatabase:(FoodItem *)item
 {
     //Preparing URL

@@ -5,6 +5,7 @@
 //  Created by Brandon Gottlob on 4/9/14.
 //  Copyright (c) 2014 Brandon Gottlob. All rights reserved.
 //
+//Controls ListViewController (Snack List)
 
 #import <UIKit/UIKit.h>
 #import "ZBarSDK.h"

@@ -14,6 +14,7 @@
 #import "FoodItem.h"
 #import "AppDelegate.h"
 
+//Controls ListViewController (Snack List)
 @implementation ListViewController
 
 @synthesize foodTable, deleteIndex;
@@ -91,6 +92,7 @@
         FoodItem *foodToDelete = [appDelegate.foodList.foodArray objectAtIndex:indexPath.row];
         deleteIndex = 0;
         
+        //If quanitity of food item in greater than 1 show message to ask user how many items to delete
         if (foodToDelete.quantity > 1)
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"How many of this item would you like to delete?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", @"Delete All", nil];
@@ -148,7 +150,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-//call new delete function from here
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     //Get a reference to the AppDelegate object
@@ -158,6 +159,7 @@
     {
         int quantity = [[alertView textFieldAtIndex:0].text intValue];
         BOOL removeSuccess = [appDelegate.foodList removeMultipleObjects:quantity atIndex:deleteIndex];
+        //If the quanitity is too large to delete alert user
         if(removeSuccess == NO)
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"The quantity you asked to delete was too large. Nothing was deleted." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -165,6 +167,7 @@
 
         }
     }
+    //delete entire object
     else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Delete All"])
     {
         FoodItem *deleteItem = [appDelegate.foodList.foodArray objectAtIndex:deleteIndex];

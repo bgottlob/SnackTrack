@@ -5,6 +5,7 @@
 //  Created by Brandon Gottlob on 4/9/14.
 //  Copyright (c) 2014 Brandon Gottlob. All rights reserved.
 //
+//Creates FoodItem objects for specific UPC codes and compares FoodItems
 
 #import <Foundation/Foundation.h>
 

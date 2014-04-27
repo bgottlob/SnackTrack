@@ -6,13 +6,16 @@
 //  Copyright (c) 2014 Brandon Gottlob. All rights reserved.
 //
 
+
 #import "FoodItem.h"
 #import "UPCParser.h"
 
+//Creates FoodItem objects for specific UPC codes and compares FoodItems
 @implementation FoodItem
 
 @synthesize name, upcCode, description, DBattributes, quantity, expiryDate, image;
 
+//Constructs a food item from a specific UPC code.
 -(id)initWithUPC:(NSString *)inUPC errorCode:(int *)errorCode
 {
 	//Initiate the superclass - if it fails do not execute the following
@@ -107,6 +110,7 @@
     NSComparisonResult res = [self.name caseInsensitiveCompare:otherItem.name];
     return res;
 }
+//compareTo is not currently implemented in application
 
 
 
