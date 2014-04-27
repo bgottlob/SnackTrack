@@ -36,6 +36,7 @@
 		DCE4F39118EDEAA800A8D865 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F39018EDEAA800A8D865 /* QuartzCore.framework */; };
 		DCE4F39318EDEAB200A8D865 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE4F39218EDEAB200A8D865 /* libiconv.dylib */; };
 		F339A9C218F70C4800728503 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F339A9C118F70C4800728503 /* FormViewController.m */; };
+		F34303BA190B383900A70374 /* Scan_barcode.png in Resources */ = {isa = PBXBuildFile; fileRef = F34303B9190B383900A70374 /* Scan_barcode.png */; };
 		F38E2321190605DB003A1302 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F38E2320190605DB003A1302 /* EditViewController.m */; };
 		F3AC60C51900093200862B7F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AC60C41900093200862B7F /* DetailViewController.m */; };
 		FD6A369A18F1F507006858AF /* icon2.0.PNG in Resources */ = {isa = PBXBuildFile; fileRef = FD6A369918F1F507006858AF /* icon2.0.PNG */; };
@@ -111,6 +112,7 @@
 		DCE4F39218EDEAB200A8D865 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		F339A9C018F70C4800728503 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewController.h; sourceTree = "<group>"; };
 		F339A9C118F70C4800728503 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewController.m; sourceTree = "<group>"; };
+		F34303B9190B383900A70374 /* Scan_barcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scan_barcode.png; sourceTree = "<group>"; };
 		F38E231F190605DB003A1302 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		F38E2320190605DB003A1302 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		F3AC60C31900093200862B7F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				F3AC60C31900093200862B7F /* DetailViewController.h */,
 				F3AC60C41900093200862B7F /* DetailViewController.m */,
 				DC3C42BF18EA42000067458C /* Images.xcassets */,
+				F34303B9190B383900A70374 /* Scan_barcode.png */,
 				FD6A369918F1F507006858AF /* icon2.0.PNG */,
 				FD6F3CBC18F6F0630017D64C /* icon2.0 copy.png */,
 				DC3C42AB18EA42000067458C /* Supporting Files */,
@@ -394,6 +397,7 @@
 				FD6F3CBD18F6F0630017D64C /* icon2.0 copy.png in Resources */,
 				DCE4F38718EDE9DA00A8D865 /* zbar-help.html in Resources */,
 				DCE4F38618EDE9DA00A8D865 /* zbar-back.png in Resources */,
+				F34303BA190B383900A70374 /* Scan_barcode.png in Resources */,
 				DCE4F38818EDE9DA00A8D865 /* zbar-helpicons.png in Resources */,
 				FD6A369A18F1F507006858AF /* icon2.0.PNG in Resources */,
 			);
