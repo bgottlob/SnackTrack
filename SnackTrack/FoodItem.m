@@ -11,7 +11,7 @@
 
 @implementation FoodItem
 
-@synthesize name, upcCode, description, DBattributes, quantity, expiryDate;
+@synthesize name, upcCode, description, DBattributes, quantity, expiryDate, image;
 
 -(id)initWithUPC:(NSString *)inUPC errorCode:(int *)errorCode
 {
@@ -65,6 +65,7 @@
     [aCoder encodeInt:quantity forKey:@"quantity"];
     [aCoder encodeObject:DBattributes forKey:@"attributes"];
     [aCoder encodeObject:expiryDate forKey:@"expiryDate"];
+    [aCoder encodeObject:image forKey:@"image"];
 }
 //Constructs the object from decoded data
 -(id)initWithCoder:(NSCoder *)aDecoder
@@ -78,6 +79,7 @@
         self.quantity = [aDecoder decodeIntForKey:@"quantity"];
         self.DBattributes = [aDecoder decodeObjectForKey:@"attributes"];
         self.expiryDate = [aDecoder decodeObjectForKey:@"expiryDate"];
+        self.image = [aDecoder decodeObjectForKey:@"image"];
     }
     return self;
 }
