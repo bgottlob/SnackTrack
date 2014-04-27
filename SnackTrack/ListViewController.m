@@ -90,7 +90,9 @@
         
         if (foodToDelete.quantity > 1)
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"You have more than one of this item.  Would you like to delete one or all of them?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Just One", @"All", nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"You have more than one of this item.  Would you like to delete one or all of them?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Just One", @"All", @"Specify Amount", nil];
+            alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+            [alertView textFieldAtIndex:0].delegate = self;
             [alertView show];
         }
         else
@@ -142,6 +144,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//call new delete function from here
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     //Get a reference to the AppDelegate object
@@ -154,6 +157,11 @@
     else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"All"])
     {
         [appDelegate.foodList.foodArray removeObjectAtIndex:deleteIndex];
+    }
+    else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Specify Amount"])
+    {
+            
+        
     }
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
