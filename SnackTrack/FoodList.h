@@ -5,6 +5,7 @@
 //  Created by Brandon Gottlob on 4/9/14.
 //  Copyright (c) 2014 Brandon Gottlob. All rights reserved.
 //
+//Creates and maintains aray of FoodItem objects
 
 #import <Foundation/Foundation.h>
 
@@ -26,7 +27,10 @@
 
 //Returns YES if the food item was found and removed, returns NO if the food item was not found and could not be removed
 -(BOOL)removeFoodItemWithUPC:(NSString *)upcCode;
+
+//removes food item in list at specific index
 -(void)removeObjectAtIndex:(NSInteger *)index;
+
 //returns YES if correct number could be removed, returns NO if user asked for too many items to be removed
 -(BOOL)removeMultipleObjects:(int)items atIndex:(int)index;
 

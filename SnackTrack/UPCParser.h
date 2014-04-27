@@ -5,6 +5,8 @@
 //  Created by Nathaniel Milkosky on 4/8/14.
 //  Copyright (c) 2014 Brandon Gottlob. All rights reserved.
 //
+//Parses the information for each food item
+//from the database
 
 #import <Foundation/Foundation.h>
 @class FoodItem;

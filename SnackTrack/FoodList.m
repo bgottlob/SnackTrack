@@ -9,6 +9,7 @@
 #import "FoodList.h"
 #import "FoodItem.h"
 
+//Creates and maintains aray of FoodItem objects
 @implementation FoodList
 
 @synthesize foodArray;
@@ -23,7 +24,8 @@
     }
     return self;
 }
-//Add an item
+
+//Add an item to array
 -(void)addFoodItem:(FoodItem *)item
 {
 	//Search the list for the item
@@ -72,7 +74,7 @@
     return -1;
 }
 
-// Removes an item.
+// Removes an item at a specific index
 -(void)removeFoodItemAtIndex:(int)index
 {
     FoodItem *removalItem = [self.foodArray objectAtIndex:index];
@@ -100,9 +102,10 @@
         return YES;
     }
     else
-        return NO;
+        return NO; //NO is returned if not enough objects to delete
 }
 
+//Removes food item based on UPC code
 -(BOOL)removeFoodItemWithUPC:(NSString *)upcCode
 {
     FoodItem *removalItem = [[FoodItem alloc] init];
