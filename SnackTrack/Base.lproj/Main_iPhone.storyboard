@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="G7z-ih-3ro">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="G7z-ih-3ro">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller - Home-->
@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="163" y="-62"/>
         </scene>
-        <!--Home View Controller - Snack Track-->
+        <!--View Controller - Snack Track-->
         <scene sceneID="gVv-sr-les">
             <objects>
-                <viewController id="Hf9-qX-yh0" customClass="HomeViewController" colorLabel="IBBuiltInLabel-Yellow" sceneMemberID="viewController">
+                <viewController id="Hf9-qX-yh0" colorLabel="IBBuiltInLabel-Yellow" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uqG-HA-fke"/>
                         <viewControllerLayoutGuide type="bottom" id="ADq-Xm-EX0"/>
@@ -57,6 +57,7 @@
                     <navigationItem key="navigationItem" title="Snack Track" id="hSq-fI-rnd"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BbR-Ao-yAC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,7 +72,7 @@
                         <viewControllerLayoutGuide type="bottom" id="vJ5-Z0-P6U"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="N98-6g-7EY">
-                        <rect key="frame" x="0.0" y="64" width="320" height="440"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="34y-xW-hxs">
@@ -462,7 +463,7 @@
                         <outlet property="expiryLabel" destination="nfo-ke-kQR" id="c16-cI-14O"/>
                         <outlet property="imageView" destination="EcG-p7-Xrr" id="ZYs-m1-STr"/>
                         <outlet property="navigationItem" destination="0vV-EV-6ox" id="hAm-As-c8x"/>
-                        <outlet property="quanityLabel" destination="ylc-fZ-obX" id="sIq-K4-39S"/>
+                        <outlet property="quantityLabel" destination="ylc-fZ-obX" id="JUG-JJ-NzI"/>
                         <outlet property="upcLabel" destination="lar-U5-CL2" id="26a-xA-3eI"/>
                         <outlet property="view" destination="9Wt-wN-lhH" id="Xif-gF-lsU"/>
                     </connections>
