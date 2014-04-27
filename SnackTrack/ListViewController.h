@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBarSDK.h"
 
-@interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextFieldDelegate>
+@interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextFieldDelegate, ZBarReaderDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *foodTable;
 
 @property (nonatomic) int deleteIndex;
+
+-(IBAction)clickDelete:(id)sender;
 
 @end

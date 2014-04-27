@@ -355,25 +355,15 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationLevel="5" indentationWidth="10" reuseIdentifier="Cell" textLabel="pCX-Oc-eCE" rowHeight="60" style="IBUITableViewCellStyleDefault" id="0BE-OQ-2En">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="60"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="agQ-yD-WUN">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0BE-OQ-2En" id="fsb-ac-GLT">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="agQ-yD-WUN" id="ytl-NV-TlH">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pCX-Oc-eCE">
-                                                    <rect key="frame" x="65" y="0.0" width="220" height="59"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="Heg-sN-v1n" kind="push" identifier="showDetail" id="VZX-Za-0my"/>
+                                            <segue destination="Heg-sN-v1n" kind="push" identifier="showDetail" id="9fj-eD-bWx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -385,6 +375,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="List" id="KEu-Iw-ixx"/>
                     <navigationItem key="navigationItem" title="Snack List" id="61b-oO-jm1">
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="5md-yv-7PV">
+                            <connections>
+                                <action selector="clickDelete:" destination="ION-iU-TeM" id="AY8-33-CnF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="TAS-Jy-MCe">
                             <connections>
                                 <segue destination="U76-hh-UKh" kind="push" id="VJK-lA-EJu"/>

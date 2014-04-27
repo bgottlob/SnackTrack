@@ -72,6 +72,9 @@
     FoodItem *item = [appDelegate.foodList.foodArray objectAtIndex:indexPath.row];
     [cell.textLabel setText:item.name];
     
+    if (item.image)
+        [cell.imageView setImage:item.image];
+    
     [cell setBackgroundColor:[UIColor clearColor]];
     [cell.textLabel setTextColor:[UIColor blackColor]];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -90,7 +93,7 @@
         
         if (foodToDelete.quantity > 1)
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"How many of this item would you like to delete?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"How many of this item would you like to delete?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", @"Delete All", nil];
             alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
             [alertView textFieldAtIndex:0].delegate = self;
             [alertView textFieldAtIndex:0].keyboardType = UIKeyboardTypeNumberPad;
@@ -162,6 +165,17 @@
 
         }
     }
+    else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Delete All"])
+    {
+        FoodItem *deleteItem = [appDelegate.foodList.foodArray objectAtIndex:deleteIndex];
+        
+        BOOL removeSuccess = [appDelegate.foodList removeMultipleObjects:deleteItem.quantity atIndex:deleteIndex];
+        if(removeSuccess == NO)
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"The quantity you asked to delete was too large. Nothing was deleted." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+        }
+    }
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -170,6 +184,66 @@
     [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
     
     [self.foodTable reloadData];
+}
+
+-(IBAction)clickDelete:(id)sender
+{
+    // Present a barcode reader that scans from the camera feed
+    ZBarReaderViewController *reader = [ZBarReaderViewController new];
+    reader.readerDelegate = self;
+    reader.supportedOrientationsMask = ZBarOrientationMaskAll;
+    
+    ZBarImageScanner *scanner = reader.scanner;
+    
+    // Disable all symbologies
+    [scanner setSymbology: 0 config: ZBAR_CFG_ENABLE to: 0];
+    
+    // Enable EAN 13 - For European products
+    [scanner setSymbology: ZBAR_EAN13 config: ZBAR_CFG_ENABLE to: 1];
+    
+    // Enable UPC-A – For American products
+    [scanner setSymbology: ZBAR_UPCA config: ZBAR_CFG_ENABLE to: 1];
+    
+    // present and release the controller
+    [self presentViewController:reader animated:YES completion:nil];
+}
+
+-(void)imagePickerController:(UIImagePickerController*)reader didFinishPickingMediaWithInfo:(NSDictionary*)info
+{
+    id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
+    ZBarSymbol *symbol = nil;
+    for(symbol in results)
+        break;
+    
+    FoodItem *searchItem = [[FoodItem alloc] init];
+    searchItem.upcCode = symbol.data;
+    
+    [reader dismissViewControllerAnimated:YES completion:nil];
+    
+    //Get a reference to the AppDelegate object
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    deleteIndex = [appDelegate.foodList searchForFoodItem:searchItem];
+    
+    if (deleteIndex != -1)
+    {
+        //The item was found and can be deleted
+        FoodItem *deleteItem = [appDelegate.foodList.foodArray objectAtIndex:deleteIndex];
+        
+        NSString *alertMessage = [NSString stringWithFormat:@"How many %@ would you like to delete?", deleteItem.name];
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertMessage delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", @"Delete All", nil];
+        alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [alertView textFieldAtIndex:0].delegate = self;
+        [alertView textFieldAtIndex:0].keyboardType = UIKeyboardTypeNumberPad;
+        [alertView show];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"This item was not found in your inventory" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alertView show];
+    }
+    
 }
 
 @end
