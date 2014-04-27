@@ -28,6 +28,6 @@
 -(BOOL)removeFoodItemWithUPC:(NSString *)upcCode;
 -(void)removeObjectAtIndex:(NSInteger *)index;
 //returns YES if correct number could be removed, returns NO if user asked for too many items to be removed
--(BOOL)removeMultipleObjects:(NSInteger *)items :(NSInteger *)index;
+-(BOOL)removeMultipleObjects:(int)items atIndex:(int)index;
 
 @end
