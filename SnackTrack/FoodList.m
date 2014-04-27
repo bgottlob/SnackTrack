@@ -96,7 +96,7 @@
     }
     else if (items < removalItem.quantity)
     {
-        removalItem.quantity = items - removalItem.quantity;
+        removalItem.quantity = removalItem.quantity - items;
         return YES;
     }
     else

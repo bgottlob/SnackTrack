@@ -90,9 +90,10 @@
         
         if (foodToDelete.quantity > 1)
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"You have more than one of this item.  Would you like to delete one or all of them?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Just One", @"All", @"Specify Amount", nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"How many of this item would you like to delete?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
             alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
             [alertView textFieldAtIndex:0].delegate = self;
+            [alertView textFieldAtIndex:0].keyboardType = UIKeyboardTypeNumberPad;
             [alertView show];
         }
         else
@@ -150,18 +151,16 @@
     //Get a reference to the AppDelegate object
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Just One"])
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Delete"])
     {
-        [appDelegate.foodList removeFoodItemAtIndex:deleteIndex];
-    }
-    else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"All"])
-    {
-        [appDelegate.foodList.foodArray removeObjectAtIndex:deleteIndex];
-    }
-    else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Specify Amount"])
-    {
-            
-        
+        int quantity = [[alertView textFieldAtIndex:0].text intValue];
+        [appDelegate.foodList removeMultipleObjects:quantity atIndex:deleteIndex];
+        if([appDelegate.foodList removeMultipleObjects:quantity atIndex:deleteIndex] == NO)
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"The quantity you asked to delete was too large. Nothing was deleted." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+
+        }
     }
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
