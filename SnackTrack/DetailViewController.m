@@ -31,7 +31,7 @@
         if (detailItem.image)
             [self.imageView setImage:detailItem.image];
         
-        self.quanityLabel.text = [NSString stringWithFormat:@"Quantity: %i", detailItem.quantity];
+        self.quantityLabel.text = [NSString stringWithFormat:@"Quantity: %i", detailItem.quantity];
     }
 }
 
