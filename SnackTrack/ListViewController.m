@@ -154,8 +154,8 @@
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Delete"])
     {
         int quantity = [[alertView textFieldAtIndex:0].text intValue];
-        [appDelegate.foodList removeMultipleObjects:quantity atIndex:deleteIndex];
-        if([appDelegate.foodList removeMultipleObjects:quantity atIndex:deleteIndex] == NO)
+        BOOL removeSuccess = [appDelegate.foodList removeMultipleObjects:quantity atIndex:deleteIndex];
+        if(removeSuccess == NO)
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"The quantity you asked to delete was too large. Nothing was deleted." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alertView show];
