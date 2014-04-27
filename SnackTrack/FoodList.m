@@ -71,6 +71,7 @@
     //If this line is reached, the item was not found
     return -1;
 }
+
 // Removes an item.
 -(void)removeFoodItemAtIndex:(int)index
 {
@@ -81,6 +82,25 @@
 	//otherwise remove the entry.
     else
         [self.foodArray removeObjectAtIndex:index];
+}
+
+//Removes number of items specified by user
+-(BOOL)removeMultipleObjects:(int)items atIndex:(int)index
+{
+    FoodItem *removalItem = [self.foodArray objectAtIndex:index];
+    //If number specified is the same as quantity delete food item
+    if(items == removalItem.quantity)
+    {
+        [self.foodArray removeObjectAtIndex:index];
+        return YES;
+    }
+    else if (items < removalItem.quantity)
+    {
+        removalItem.quantity = items - removalItem.quantity;
+        return YES;
+    }
+    else
+        return NO;
 }
 
 -(BOOL)removeFoodItemWithUPC:(NSString *)upcCode
