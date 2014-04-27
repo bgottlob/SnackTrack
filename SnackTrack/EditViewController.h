@@ -14,6 +14,7 @@
 
 @property (nonatomic, assign) int rowNo;
 
+@property (nonatomic, weak) IBOutlet UITextField *qtyField;
 @property (nonatomic, weak) IBOutlet UITextField *foodName;
 @property (nonatomic, weak) IBOutlet UITextField *upc;
 @property (nonatomic, weak) IBOutlet UITextField *expiryDate;
@@ -21,10 +22,13 @@
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
+@property (nonatomic, weak) IBOutlet UIStepper* stepper;
+
 @property (nonatomic) BOOL keyboardIsShown;
 
 -(IBAction)clickDone:(id)sender;
 -(IBAction)clickCancel:(id)sender;
+-(IBAction)stepperPressed:(UIStepper *)sender;
 -(BOOL)textFieldShouldReturn:(UITextField *)textField;
 
 

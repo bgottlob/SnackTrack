@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *upcLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expiryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
+@property (weak, nonatomic) IBOutlet UILabel *quanityLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property IBOutlet UINavigationItem *navigationItem;
 

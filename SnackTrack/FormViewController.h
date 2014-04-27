@@ -32,7 +32,6 @@
 -(IBAction)clickAdd:(id)sender;
 -(IBAction)clickCancel:(id)sender;
 -(IBAction)stepperPressed:(id)sender;
--(IBAction)didEndOnExit:(id)sender;
 -(BOOL)textFieldShouldReturn:(UITextField *)textField;
 
 @end

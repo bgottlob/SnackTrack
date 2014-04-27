@@ -17,7 +17,7 @@
 
 @implementation EditViewController
 
-@synthesize foodName, upc, expiryDate, description, rowNo;
+@synthesize qtyField, foodName, upc, expiryDate, description, rowNo;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,17 +35,30 @@
     //Get a reference to the AppDelegate object
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    //Setup UIStepper for quantity value
+    [self.stepper setMinimumValue:1];
+    [self.stepper setContinuous:YES];
+    [self.stepper setWraps:NO];
+    [self.stepper setStepValue:1];
+    [self.stepper setMaximumValue:100];
+    [self.stepper setValue:((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).quantity];
+    
     //Setup UIDatePicker for expiration date input
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     datePicker.datePickerMode = UIDatePickerModeDate;
     
     [datePicker setDate:[NSDate date]];
+    [datePicker setMinimumDate: [NSDate date]];
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     [expiryDate setInputView:datePicker];
     
+    qtyField.text = [NSString stringWithFormat:@"%i",(int)((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).quantity];
     foodName.text = ((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).name;
     upc.text = ((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).upcCode;
-    expiryDate.text = ((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).expiryDate;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM-dd-yyyy"];
+    expiryDate.text = [formatter stringFromDate:((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).expiryDate];
     description.text = ((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).description;
 }
 
@@ -57,12 +70,15 @@
 
 -(IBAction)clickDone:(id)sender
 {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM-dd-yyyy"];
     //Get a reference to the AppDelegate object
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    ((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).quantity = [qtyField.text intValue];
     ((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).name = foodName.text;
     ((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).upcCode = upc.text;
-    ((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).expiryDate = expiryDate.text;
+    ((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).expiryDate = [formatter dateFromString:expiryDate.text];
     ((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).description = description.text;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -71,12 +87,12 @@
     
     [NSKeyedArchiver archiveRootObject:appDelegate.foodList toFile:appFile];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(IBAction)clickCancel:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
@@ -97,6 +113,11 @@
         [dateFormatter setDateFormat:@"MM-dd-yyyy"];
         expiryDate.text = [dateFormatter stringFromDate:picker.date];
     }
+}
+
+-(IBAction)stepperPressed:(UIStepper *)sender
+{
+    self.qtyField.text= [NSString stringWithFormat:@"%i", (int)sender.value];
 }
 
 
