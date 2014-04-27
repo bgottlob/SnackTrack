@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="G7z-ih-3ro">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="G7z-ih-3ro">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller - Home-->
@@ -56,7 +56,6 @@
                     <navigationItem key="navigationItem" title="Snack Track" id="hSq-fI-rnd"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BbR-Ao-yAC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,14 +70,14 @@
                         <viewControllerLayoutGuide type="bottom" id="vJ5-Z0-P6U"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="N98-6g-7EY">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="440"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="34y-xW-hxs">
                                 <rect key="frame" x="40" y="9" width="240" height="435"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Welcome to the interactive snacking experience SnackTrack! To get started, select a snack you want to include in your list. Tap the List button at the bottom of the screen to see your list. To add your new item hit the "+" symbol at the top right corner of your screen. Scan the item to add it to your Snack list. Select the correct quantity you wish to add and input any other information into the existing fields. To edit a specific snack, select it from the snack list and correct any information necessary. To delete food from your list, find the specific item and swipe left to select delete. Now that your snack list is set up, sit back, relax, and enjoy snacking!</mutableString>
+                                <string key="text">Welcome to the interactive snacking experience SnackTrack! To get started, select a snack you want to include in your list. Tap the List button at the bottom of the screen to see your list. To add your new item hit the "+" symbol at the top right corner of your screen. Scan the item to add it to your Snack list. Select the correct quantity you wish to add and input any other information into the existing fields. To edit a specific snack, select it from the snack list and correct any information necessary. To delete food from your list, find the specific item and swipe left to select delete. Now that your snack list is set up, sit back, relax, and enjoy snacking!</string>
                                 <color key="textColor" red="0.82745098039999998" green="0.8862745098" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
