@@ -242,11 +242,11 @@
     if (textField == self.foodName) {
         [self.upc becomeFirstResponder];
     } else if (textField == self.upc) {
-        [self.expiryDate becomeFirstResponder];
-    } else if (textField == self.expiryDate) {
         [self.description becomeFirstResponder];
     } else if (textField == self.description) {
-        [self.description resignFirstResponder];
+        [self.expiryDate becomeFirstResponder];
+    } else if (textField == self.expiryDate) {
+        [self.expiryDate resignFirstResponder];
     }
     return YES;
 }

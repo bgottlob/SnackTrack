@@ -10,7 +10,7 @@
 
 @class FoodItem;
 
-@interface EditViewController : UIViewController <UITextFieldDelegate>
+@interface EditViewController : UIViewController <UITextFieldDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, assign) int rowNo;
 
@@ -23,6 +23,7 @@
 
 //editing view that moves to selected field
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
 
 @property (nonatomic, weak) IBOutlet UIStepper* stepper;
 

@@ -150,7 +150,7 @@
                                         <color key="backgroundColor" red="0.82745098039999998" green="0.8862745098" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UcQ-Xw-BfG">
                                         <rect key="frame" x="20" y="330" width="280" height="30"/>
@@ -158,7 +158,7 @@
                                         <color key="backgroundColor" red="0.82745098039999998" green="0.8862745098" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKN-W7-dyw">
                                         <rect key="frame" x="108" y="15" width="104" height="95"/>
@@ -254,20 +254,20 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Expiry Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MZM-TH-tB2">
-                                        <rect key="frame" x="20" y="387" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.82745098039999998" green="0.8862745098" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="textColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FlX-al-JyV">
-                                        <rect key="frame" x="20" y="444" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="437" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.82745098039999998" green="0.8862745098" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FlX-al-JyV">
+                                        <rect key="frame" x="20" y="380" width="280" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.82745098039999998" green="0.8862745098" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.40784313729999999" green="0.70196078429999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zJ-b9-Bdr">
                                         <rect key="frame" x="112" y="150" width="97" height="30"/>
@@ -311,7 +311,7 @@
                         <outlet property="expiryDate" destination="MZM-TH-tB2" id="ZpE-hO-1jL"/>
                         <outlet property="foodName" destination="GV7-XQ-XcE" id="6Ta-K1-P9g"/>
                         <outlet property="qtyField" destination="2zJ-b9-Bdr" id="bkI-ck-OmA"/>
-                        <outlet property="scrollView" destination="2L0-uE-Oeu" id="0yK-69-WTl"/>
+                        <outlet property="scrollView" destination="2L0-uE-Oeu" id="2aD-UO-pQe"/>
                         <outlet property="stepper" destination="uEn-ZJ-UQD" id="2Ux-ds-uZ9"/>
                         <outlet property="upc" destination="fhf-6x-jXG" id="SF1-E7-rUe"/>
                     </connections>
