@@ -11,22 +11,9 @@
 #import "FoodItem.h"
 #import "FoodList.h"
 
-@interface EditViewController ()
-
-@end
-
 @implementation EditViewController
 
 @synthesize qtyField, foodName, upc, expiryDate, description, rowNo, scrollView, keyboardIsShown, datePicker;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -96,19 +83,18 @@
     keyboardIsShown = NO;
 }
 
+//Scrolls the view so the text field is visible above the keyboard – called when the keyboard is about to be shown
 - (void)keyboardWillShow:(NSNotification *)n
 {
-    // This is an ivar I'm using to ensure that we do not do the frame size adjustment on the `UIScrollView` if the keyboard is already shown.  This can happen if the user, after fixing editing a `UITextField`, scrolls the resized `UIScrollView` to another `UITextField` and attempts to edit the next `UITextField`.  If we were to resize the `UIScrollView` again, it would be disastrous.  NOTE: The keyboard notification will fire even when the keyboard is already shown.
+    //Ensures that frame adjustment is not done when the keyboard is not being shown
     if (keyboardIsShown) {
         return;
     }
     
     NSDictionary* userInfo = [n userInfo];
     
-    // get the size of the keyboard
     CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    // resize the noteView
     CGRect viewFrame = self.scrollView.frame;
     viewFrame.size.height -= (keyboardSize.height + 10);
     
@@ -119,23 +105,17 @@
     keyboardIsShown = YES;
 }
 
-//This method is required to allow the scroll view to scroll for some reason
+//This method is required to allow the scroll view to scroll
 -(void)viewDidLayoutSubviews
 {
     [scrollView setContentSize:CGSizeMake(320, 504)];
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(IBAction)clickDone:(id)sender
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM-dd-yyyy"];
+    
     //Get a reference to the AppDelegate object
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
@@ -145,6 +125,7 @@
     ((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).expiryDate = [formatter dateFromString:expiryDate.text];
     ((FoodItem*)[appDelegate.foodList.foodArray objectAtIndex:rowNo]).description = description.text;
     
+    //Saves the new properties of the food item
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"foodList.txt"];
@@ -183,7 +164,6 @@
 {
     self.qtyField.text= [NSString stringWithFormat:@"%i", (int)sender.value];
 }
-
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

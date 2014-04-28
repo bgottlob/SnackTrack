@@ -21,6 +21,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property IBOutlet UINavigationItem *navigationItem;
 
--(IBAction)clickEdit:(id)sender;
+//The row number of the detail item in the snack list – to be passed to the edit view controller if needed
+@property (nonatomic) int rowNo;
+
+//Fills the labels and image view in the view with the necessary content
+-(void)configureView;
 
 @end

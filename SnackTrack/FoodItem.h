@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FoodItem : NSObject <NSCoding>
+
 //Item properties
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *upcCode;

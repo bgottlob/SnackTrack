@@ -11,7 +11,7 @@
 
 @implementation DetailViewController
 
-@synthesize detailItem, navigationItem, imageView, nameLabel;
+@synthesize detailItem, navigationItem, imageView, nameLabel, rowNo;
 
 - (void)configureView
 {
@@ -21,7 +21,7 @@
         
         self.nameLabel.text = detailItem.name;
         
-        if (detailItem.upcCode)
+        if (detailItem.upcCode && ![detailItem.upcCode isEqualToString:@""])
             self.upcLabel.text = [@"UPC: " stringByAppendingString:detailItem.upcCode];
         if (detailItem.expiryDate)
         {
@@ -29,7 +29,7 @@
             [formatter setDateFormat:@"MM-dd-yyyy"];
             self.expiryLabel.text = [@"Expiry Date: " stringByAppendingString:[formatter stringFromDate:detailItem.expiryDate]];
         }
-        if (detailItem.description)
+        if (detailItem.description && ![detailItem.description isEqualToString:@""])
             self.descLabel.text = [@"Description: " stringByAppendingString:detailItem.description];
         if (detailItem.image)
             [self.imageView setImage:detailItem.image];
@@ -58,10 +58,13 @@
     self.navigationItem.title = self.detailItem.name;
 }
 
-//moves to edit view
--(IBAction)clickEdit:(id)sender
+//Passes the row number of the item to be editted to the edit view controller
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [self performSegueWithIdentifier: @"editFood" sender:detailItem];
+    if ([segue.identifier isEqualToString:@"editFood"])
+    {
+        [[segue destinationViewController] setRowNo:rowNo];
+    }
 }
 
 @end
