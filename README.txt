@@ -59,7 +59,13 @@ other scanned items.
 		This is a static class that connects to the database and pulls information about a specific UPC code,
 		or uploads information about an item that was not found to the database.
 
-4. Credits
+4. Compiling and Running (Xcode on a Mac is required)
+======================================================
+	1. Open the SnackTrack.xcodeproj file in Xcode
+	2. On the top bar of Xcode, select a device or simulator to run the app on
+	3. Click the play button to compile, build, and run the app
+
+5. Credits
 ======================
 	ZBar SDK - the development kit that allowed us to easily scan a barcode
 	Outpan.com - the database which allows us to download/upload information about food items
