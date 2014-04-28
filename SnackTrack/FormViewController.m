@@ -15,7 +15,7 @@
 
 @implementation FormViewController
 
-@synthesize foodName, upc, expiryDate, description, keyboardIsShown, scrollView, willAddToDB, itemToAdd, detailItem, stepper;
+@synthesize foodName, upc, expiryDate, description, keyboardIsShown, scrollView, willAddToDB, itemToAdd, detailItem, stepper, datePicker;
 
 - (void)viewDidLoad
 {
@@ -47,7 +47,7 @@
     foodName.text = detailItem.name;
     
     //Setup UIDatePicker for expiration date input
-    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+    datePicker = [[UIDatePicker alloc]init];
     datePicker.datePickerMode = UIDatePickerModeDate;
     
     [datePicker setDate:[NSDate date]];
@@ -249,6 +249,16 @@
         [self.expiryDate resignFirstResponder];
     }
     return YES;
+}
+
+-(IBAction)clickBackground:(id)sender
+{
+    [self.foodName resignFirstResponder];
+    [self.upc resignFirstResponder];
+    [self.description resignFirstResponder];
+    [self.expiryDate resignFirstResponder];
+    [self.qtyField resignFirstResponder];
+    [self.datePicker resignFirstResponder];
 }
 
 @end

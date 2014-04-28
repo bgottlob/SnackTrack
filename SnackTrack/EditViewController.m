@@ -17,7 +17,7 @@
 
 @implementation EditViewController
 
-@synthesize qtyField, foodName, upc, expiryDate, description, rowNo, scrollView, keyboardIsShown;
+@synthesize qtyField, foodName, upc, expiryDate, description, rowNo, scrollView, keyboardIsShown, datePicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -66,7 +66,7 @@
     self.qtyField.delegate = self;
     
     //Setup UIDatePicker for expiration date input
-    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+    datePicker = [[UIDatePicker alloc]init];
     datePicker.datePickerMode = UIDatePickerModeDate;
     
     [datePicker setDate:[NSDate date]];
@@ -199,15 +199,14 @@
     return YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(IBAction)clickBackground:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self.foodName resignFirstResponder];
+    [self.upc resignFirstResponder];
+    [self.description resignFirstResponder];
+    [self.expiryDate resignFirstResponder];
+    [self.qtyField resignFirstResponder];
+    [self.datePicker resignFirstResponder];
 }
-*/
 
 @end

@@ -66,15 +66,10 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    NSDate *object = appDelegate.foodList.foodArray[indexPath.row];
-    cell.textLabel.text = [object description];
-    
-    //Get a reference to the current item
+    //Get a reference to the current item and fill the fields of the cell
     FoodItem *item = [appDelegate.foodList.foodArray objectAtIndex:indexPath.row];
     [cell.textLabel setText:item.name];
-    
-    if (item.image)
-        [cell.imageView setImage:item.image];
+    [cell.imageView setImage:item.image];
     
     [cell setBackgroundColor:[UIColor clearColor]];
     [cell.textLabel setTextColor:[UIColor blackColor]];
@@ -246,6 +241,8 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"This item was not found in your inventory" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alertView show];
     }
+    
+    [self.foodTable reloadData];
     
 }
 

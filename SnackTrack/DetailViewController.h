@@ -13,6 +13,7 @@
 
 //Properties of the food item
 @property (strong, nonatomic) FoodItem *detailItem;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *upcLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expiryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;

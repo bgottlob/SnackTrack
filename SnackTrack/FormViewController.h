@@ -27,11 +27,13 @@
 @property (strong, nonatomic) FoodItem *detailItem;
 @property (nonatomic, strong) FoodItem *itemToAdd;
 @property (nonatomic, weak) IBOutlet UIStepper* stepper;
+@property (nonatomic, strong) UIDatePicker *datePicker;
 
 //Actions
 -(IBAction)clickAdd:(id)sender;
 -(IBAction)clickCancel:(id)sender;
 -(IBAction)stepperPressed:(id)sender;
 -(BOOL)textFieldShouldReturn:(UITextField *)textField;
+-(IBAction)clickBackground:(id)sender;
 
 @end
