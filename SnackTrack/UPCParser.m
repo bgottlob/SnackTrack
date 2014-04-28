@@ -46,6 +46,7 @@
     NSString *completedPDL = [NSString stringWithFormat:@"data=%@\n%@", pdlName, pdlDesc];
     NSData *requestInfo = [completedPDL dataUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"%@  %@", completedPDL, requestInfo);
+    
     //Create and send an HTTP POST request
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];

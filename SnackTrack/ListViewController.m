@@ -19,20 +19,6 @@
 
 @synthesize foodTable, deleteIndex;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -78,6 +64,7 @@
     return cell;
 }
 
+//Called when the user swipes to the left and clicks "delete"
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Get a reference to the AppDelegate object
@@ -116,6 +103,7 @@
     }
 }
 
+//Sends data to the detail view controller that is pushed to when a row is selected
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -123,6 +111,7 @@
         NSIndexPath *indexPath = [self.foodTable indexPathForSelectedRow];
         FoodItem *foodItem = [appDelegate.foodList.foodArray objectAtIndex:indexPath.row];
         [[segue destinationViewController] setDetailItem:foodItem];
+        [[segue destinationViewController] setRowNo:(int)indexPath.row];
     }
 }
 
@@ -139,12 +128,7 @@
     return [appDelegate.foodList.foodArray count];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+//Responds to clicking a button on an alert view – the actual deletion actions are handled here
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     //Get a reference to the AppDelegate object
@@ -154,6 +138,7 @@
     {
         int quantity = [[alertView textFieldAtIndex:0].text intValue];
         BOOL removeSuccess = [appDelegate.foodList removeMultipleObjects:quantity atIndex:deleteIndex];
+        
         //If the quanitity is too large to delete alert user
         if(removeSuccess == NO)
         {
@@ -206,6 +191,7 @@
     [self presentViewController:reader animated:YES completion:nil];
 }
 
+//Called once the barcode of the item to be deleted is scanned
 -(void)imagePickerController:(UIImagePickerController*)reader didFinishPickingMediaWithInfo:(NSDictionary*)info
 {
     id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];

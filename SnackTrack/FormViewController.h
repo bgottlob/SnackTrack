@@ -29,7 +29,7 @@
 @property (nonatomic, weak) IBOutlet UIStepper* stepper;
 @property (nonatomic, strong) UIDatePicker *datePicker;
 
-//Actions
+//Same actions as those in EditViewController
 -(IBAction)clickAdd:(id)sender;
 -(IBAction)clickCancel:(id)sender;
 -(IBAction)stepperPressed:(id)sender;
