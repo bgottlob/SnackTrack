@@ -24,8 +24,8 @@
 //editing view that moves to selected field
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
-
 @property (nonatomic, weak) IBOutlet UIStepper* stepper;
+@property (nonatomic, strong) UIDatePicker *datePicker;
 
 @property (nonatomic) BOOL keyboardIsShown;
 
@@ -34,6 +34,7 @@
 -(IBAction)clickCancel:(id)sender;
 -(IBAction)stepperPressed:(UIStepper *)sender;
 -(BOOL)textFieldShouldReturn:(UITextField *)textField;
+-(IBAction)clickBackground:(id)sender;
 
 
 @end

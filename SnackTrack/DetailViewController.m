@@ -11,13 +11,16 @@
 
 @implementation DetailViewController
 
-@synthesize detailItem, navigationItem, imageView;
+@synthesize detailItem, navigationItem, imageView, nameLabel;
 
 - (void)configureView
 {
     // Update the user interface for the detail item.
 	// Checks if each property is initialized before displaying
     if (self.detailItem) {
+        
+        self.nameLabel.text = detailItem.name;
+        
         if (detailItem.upcCode)
             self.upcLabel.text = [@"UPC: " stringByAppendingString:detailItem.upcCode];
         if (detailItem.expiryDate)
