@@ -95,7 +95,7 @@
         //If quanitity of food item in greater than 1 show message to ask user how many items to delete
         if (foodToDelete.quantity > 1)
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"How many of this item would you like to delete?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", @"Delete All", nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:[@"How many of this item would you like to delete? You can delete up to: " stringByAppendingString:[NSString stringWithFormat:@"%d",foodToDelete.quantity]] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", @"Delete All", nil];
             alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
             [alertView textFieldAtIndex:0].delegate = self;
             [alertView textFieldAtIndex:0].keyboardType = UIKeyboardTypeNumberPad;
@@ -233,7 +233,7 @@
         //The item was found and can be deleted
         FoodItem *deleteItem = [appDelegate.foodList.foodArray objectAtIndex:deleteIndex];
         
-        NSString *alertMessage = [NSString stringWithFormat:@"How many %@ would you like to delete?", deleteItem.name];
+        NSString *alertMessage = [[NSString stringWithFormat:@"How many %@ would you like to delete? You can delete up to: ", deleteItem.name] stringByAppendingString:[NSString stringWithFormat:@"%d",deleteItem.quantity]];
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertMessage delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", @"Delete All", nil];
         alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
