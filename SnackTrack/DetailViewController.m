@@ -27,7 +27,7 @@
         {
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"MM-dd-yyyy"];
-            self.expiryLabel.text = [@"Expiry Date: " stringByAppendingString:[formatter stringFromDate:detailItem.expiryDate]];
+            self.expiryLabel.text = [@"Expiration Date: " stringByAppendingString:[formatter stringFromDate:detailItem.expiryDate]];
         }
         if (detailItem.description && ![detailItem.description isEqualToString:@""])
             self.descLabel.text = [@"Description: " stringByAppendingString:detailItem.description];

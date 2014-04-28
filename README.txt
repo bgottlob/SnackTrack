@@ -63,6 +63,7 @@ other scanned items.
 ======================================================
 	1. Open the SnackTrack.xcodeproj file in Xcode
 	2. On the top bar of Xcode, select a device or simulator to run the app on
+		-Select either of the iPhone Retina (4-inch) simulators - the app is built for the iPhone 5 screens
 	3. Click the play button to compile, build, and run the app
 
 5. Credits
